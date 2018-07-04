@@ -7,9 +7,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login</title><%-- 
-<link href="<%=request.getContextPath()%>/css/main.css" rel="stylesheet" type="text/css"> --%>
-<link href="/SpringBoard/css/main.css" rel="stylesheet">
+<title>Login</title>
+<!-- <link href="/SpringBoard/css/main.css" rel="stylesheet">  기존 css -->
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/SpringBoard/style/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/SpringBoard/style/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/SpringBoard/style/css/agency.min.css" rel="stylesheet">
+
 
 <c:if test="${errCode == null }">
 	<c:set var="errCode" value="\"\""></c:set>
@@ -38,9 +52,132 @@
 </script>
 </head>
 
-<body onload="checkErrCode()">
+<body id="page-top" onload="checkErrCode()">
 
-<div class="wrapper">
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">SpringBoard</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="login.yy">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="member/join.yy">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<!-- --------------------------------------------------------------------------------------- -->
+
+	<spring:hasBindErrors name="LoginModel"/>
+	<form:errors path="LoginModel"/>
+	<form action="login.yy" method="post">
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">로그인 화면</h2>
+            <h3 class="section-subheading text-muted">메일주소로 로그인을 시도해주세요</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+           <%--  <form id="contactForm" name="sentMessage" novalidate="novalidate"> --%>
+              <div class="row">
+
+                <div class="col-md-4">
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input class="form-control" id="userId" type="text" placeholder="Your mail address *" required="required" value="${userId}" >
+                    <span class="error"><form:errors path="LoginModel.userId"/></span><br/>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="userPw" type="password" placeholder="Your password *" required="required" >
+                    <span class="error"><form:errors path="LoginModel.userPw"/></span><br/><br/>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+
+                 <div class="col-md-4">
+                </div>
+              
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
+                </div>
+
+
+              </div>
+            <%-- </form> --%>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    </form>
+    
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Your Website 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+<%-- <div class="wrapper">
 	<h3>스프링 게시판</h3>
 	<spring:hasBindErrors name="LoginModel"/>
 	<form:errors path="LoginModel"/>
@@ -60,7 +197,12 @@
 			</center>
 		</fieldset>
 	</form>
-</div>
+</div> --%>
+
+
+
+
+
 
 </body>
 </html>

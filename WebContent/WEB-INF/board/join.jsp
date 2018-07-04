@@ -10,7 +10,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Join Member</title>
 <!-- <link href="../css/main.css" rel="stylesheet" type="text/css"> -->
-<link href="/SpringBoard/css/main.css" rel="stylesheet">
+<!-- <link href="/SpringBoard/css/main.css" rel="stylesheet"> -->
+
+  <!-- Bootstrap core CSS -->
+    <link href="/SpringBoard/style/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/SpringBoard/style/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/SpringBoard/style/css/agency.min.css" rel="stylesheet">
+
+
+
+
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 <c:if test="${errCode == null }">
@@ -48,9 +65,139 @@
 
 
 </head>
-<body onload="errCodeCheck()">
+<body onload="errCodeCheck()" id="page-top">
 
-<div class="wrapper">
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">SpringBoard</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="login.yy">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="member/join.yy">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<!--  --------------------------------------------------------------------------------- -->
+	<spring:hasBindErrors name="MemberModel"/>
+	<form:errors path="MemberModel"/>
+	<form action="join.yy" method="post" onsubmit="return passwordCheck()">
+
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">회원가입</h2>
+            <h3 class="section-subheading text-muted">메일주소로 회원가입을 시도해주세요</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <%-- <form id="contactForm" name="sentMessage" novalidate="novalidate"> --%>
+              <div class="row">
+
+                <div class="col-md-4">
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input class="form-control" id="userId" name="userId" type="text" placeholder="Your mail address *" required="required" data-validation-required-message="Please enter your name.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="userPw" name="userPw" type="password" placeholder="Your password *" required="required" data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="userPwCheck" name="userPwCheck" type="password" placeholder="Your password re *" required="required" data-validation-required-message="Please enter your name.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" id="userName" name="userName" type="text" placeholder="Your name *" required="required" data-validation-required-message="Please enter your email address.">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                </div>
+
+                 <div class="col-md-4">
+                </div>
+              
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+
+                  <div id="success"></div>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="reset">rewrite</button>
+                </div>
+
+
+              </div>
+           <%--  </form> --%>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	</form>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Your Website 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+<%-- <div class="wrapper">
 	<h3>회원가입</h3>
 	<spring:hasBindErrors name="MemberModel"/>
 	<form:errors path="MemberModel"/>
@@ -79,7 +226,7 @@
 			</center>
 		</fieldset>
 	</form>
-</div>
+</div> --%>
 
 </body>
 </html>
