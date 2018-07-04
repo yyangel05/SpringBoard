@@ -6,6 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+//인터셉터 설정
+//로그인 한 상태에서 로그인창과 회원가입 창으로 갈 수 없도록
+//로그인을 안한 유저가 게시판 리스트로 갈 수 없도록
+
 public class SessionInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override

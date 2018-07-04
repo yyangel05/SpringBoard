@@ -2,7 +2,7 @@ package member.model;
 
 public class MemberModel {
 	
-	private int idx;
+	private int idx; 
 	private String userId;
 	private String userPw;
 	private String userName;

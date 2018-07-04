@@ -16,13 +16,18 @@ public class MemberService  implements MemberDao {
 	@Override
 	public boolean addMember(MemberModel memberModel) {
 		// TODO Auto-generated method stub
-		sqlMapClientTemplate.insert("member.addMember",memberModel);
+		
+		//db에 회원을 넣음. insert문 실행
+		sqlMapClientTemplate.insert("member.addMember", memberModel);
+		//userid를 파라미터로 보내 값이 담긴 자바빈 checkAddMember
 		MemberModel checkAddMember = findByUserId(memberModel.getUserId());
 		
-		//회원가입 insert가 잘 되었는지 확인
+	//회원가입 insert가 잘 되었는지 확인
+		//잘 안되었으면(담긴 정보가 없으면)
 		if(checkAddMember == null) {
 			return false;
 		}
+		//잘 되었으면(담긴 정보가 있으면)
 		else {
 			return true;
 		}

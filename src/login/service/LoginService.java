@@ -17,6 +17,8 @@ public class LoginService implements LoginDao {
 	@Override
 	public LoginSessionModel checkUserId(String userId) {
 		// TODO Auto-generated method stub
+		
+		//로그인 쿼리문을 실행한 결과를 LoginSessionModel객체에 저장
 		return (LoginSessionModel) sqlMapClientTemplate.queryForObject("login.loginCheck", userId);
 	}
 	

@@ -20,15 +20,15 @@
 		from yyboard_member
 	</select>
 	
-	<!--  -->
-	<select id="findByUserId" parameterClass="String" resultClass="MemberModel">
+	<!-- 유저 아이디에 해당하면 모든 정보를 가져온다. -->
+	<select id="findByUserId" parameterClass="String" resultClass="MemberModel"> <!-- ##에 넣어주는 값은String, 결과값의 저장은 자바빈. -->
 		select idx, userid, userpw, username, joindate
 		from yyboard_member
 		where userid = #userid#
 	</select>
 	
-	<!--  -->
-	<insert id="addMember" parameterClass="MemberModel">
+	<!-- 회원가입을 하는 insert문. 값은 join.jsp에서 post로 전송된 값을 넣음 -->
+	<insert id="addMember" parameterClass="MemberModel"> <!-- ##에 넣어주는 값은 memberModel자바빈. -->
 		insert into yyboard_member(idx, userid, userpw, username, joindate)
 		values(memberseq.nextVal, #userId#, #userPw#, #userName#, sysdate)
 	</insert>

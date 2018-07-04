@@ -28,6 +28,7 @@ public class MemberController {
 	public ModelAndView addMember(@ModelAttribute("MemberModel") MemberModel memberModel, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 		new MemberValidator().validate(memberModel, result);
+		
 		if(result.hasErrors()) {
 			mav.setViewName("/board/join");
 			return mav;
@@ -39,22 +40,22 @@ public class MemberController {
 		 
 		//입력한 아이디가 이미 있는 아이디라면
 		if(checkMemberModel != null) {
-			mav.addObject("errCode",1);
-			mav.setViewName("/board/join");
+			mav.addObject("errCode",1); //("이미 가입된 이메일 주소입니다!");
+			mav.setViewName("/board/join"); //회원가입창으로 
 			return mav;
 		}
 		
-		//회원가입이 되면 로그인으로 넘어간다
+		//회원가입이 되면 로그인으로 넘어간다(로그인성공)
 		if(memberService.addMember(memberModel)) {
-			mav.addObject("errCode",3);
-			mav.setViewName("/board/login");
+			mav.addObject("errCode",3); //("회원가입 처리가 완료되었습니다! 로그인하실?");
+			mav.setViewName("/board/login"); //로그인화면으로 포워딩
 			return mav;
 		}
 		//회원가입이 잘 안되면 회원가입창으로 간다
 		else {
-			mav.addObject("errCode",2);
-			mav.setViewName("/board/join");
-			return mav;
+			mav.addObject("errCode",2); //("회원가입 처리가 실패하였습니다. 잠시 후 다시 시도해주세요");
+			mav.setViewName("/board/join"); //회원가입창으로 
+			return mav; 
 		}
 	}
 }

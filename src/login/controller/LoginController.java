@@ -42,27 +42,28 @@ public class LoginController {
 		
 		context = new ClassPathXmlApplicationContext("/config/applicationContext.xml");
 		LoginService loginService = (LoginService) context.getBean("loginService");
-		LoginSessionModel loginCheckResult = loginService.checkUserId(userId);
+		LoginSessionModel loginCheckResult = loginService.checkUserId(userId); //서비스의 LoginCheck이라는 select쿼리가 실행됨.
 		
-		//
+		//없는 이메일주소로 로그인을 시도하면
 		if(loginCheckResult == null) {
 			mav.addObject("userId", userId);
-			mav.addObject("errCode",1);
+			mav.addObject("errCode",1); //("가입된 이메일 주소가 아닙니다!");
 			mav.setViewName("/board/login");
 			return mav;
 		}
 		
-		//
+		//로그인이 성공적으로 되면 
 		if(loginCheckResult.getUserPw().equals(userPw)) {
 			session.setAttribute("userId", userId);
 			session.setAttribute("userName", loginCheckResult.getUserName());
-			mav.setViewName("redirect:/board/list.yy");
+			mav.setViewName("redirect:/board/list.yy"); //게시판 리스트로 리다이렉트
 			return mav;
 		}
+		//비밀번호가 맞지 않으면
 		else {
 			mav.addObject("userId", userId);
-			mav.addObject("errCode",2);
-			mav.setViewName("/board/login");
+			mav.addObject("errCode",2); //("비밀번호가 일치하지 않습니다!");
+			mav.setViewName("/board/login"); //로그인창으로 포워딩?
 			return mav;
 		}
 		
@@ -70,8 +71,8 @@ public class LoginController {
 	
 	@RequestMapping("/logout.yy")
 	public String logout(HttpSession session) {
-		session.invalidate();
-		return "redirect:login.yy";
+		session.invalidate(); //세션 무효화
+		return "redirect:login.yy"; //로그인창으로 리다이렉트
 	}
 	
 

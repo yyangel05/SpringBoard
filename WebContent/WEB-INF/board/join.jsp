@@ -26,7 +26,6 @@
 			case 1:
 				alert("이미 가입된 이메일 주소입니다!");
 				break;
-
 			case 2:
 				alert("회원가입 처리가 실패하였습니다. 잠시 후 다시 시도해주세요");
 				break;
@@ -36,12 +35,11 @@
 	
 	function passwordCheck() {
 		
-		if($("#userPw").val() != $("userPwCheck").val()) {
+		if($("#userPw").val() != $("#userPwCheck").val()) {
 			
 			alert("패스워드 입력이 일치하지 않습니다");
 			$("#userPwCheck").focus();
 			return false;
-			
 		}
 		return true;
 	}
@@ -58,6 +56,7 @@
 	<form:errors path="MemberModel"/>
 	<form action="join.yy" method="post" onsubmit="return passwordCheck()">
 		<fieldset>
+		
 			<label for="userId">&nbsp;메일주소 : </label>
 			<input type="text" id="userId" name="userId" class="loginInput"/>
 			<span class="error"><form:errors path="MemberModel.userId"/></span><br />
