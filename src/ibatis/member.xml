@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="member">
+
+	<typeAlias alias="MemberModel" type="member.model.MemberModel"/>
+	
+	<!-- 개인 유저에 대한 정보들을 가져온다 -->
+	<select id="selectOneMember" parameterClass="int" resultClass="MemberModel">
+		select idx, userid, userpw, username, joindate 
+		from  yyboard_member
+		where idx= #idx#
+	</select>
+	
+	<!-- 전체 유저에 대한 정보들을 가져온다 -->
+	<select id="selectAllMember" resultClass="MemberModel">
+		select idx, userid, userpw, username, joindate
+		from yyboard_member
+	</select>
+	
+	<!--  -->
+	<select id="findByUserId" parameterClass="String" resultClass="MemberModel">
+		select idx, userid, userpw, username, joindate
+		from yyboard_member
+		where userid = #userid#
+	</select>
+	
+	<!--  -->
+	<insert id="addMember" parameterClass="MemberModel">
+		insert into yyboard_member(idx, userid, userpw, username, joindate)
+		values(memberseq.nextVal, #userId#, #userPw#, #userName#, sysdate)
+	</insert>
+
+
+
+
+</sqlMap>
