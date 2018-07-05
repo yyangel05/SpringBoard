@@ -11,6 +11,7 @@
 	<!-- controller -->
 	<bean id="loginController" class="login.controller.LoginController"/>
 	<bean id="memberController" class="member.controller.MemberController"/>
+	<bean id="boardController" class="board.controller.BoardController"/>
 	
 	<!-- viewResolver -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

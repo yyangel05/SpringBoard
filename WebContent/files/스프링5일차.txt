@@ -1,0 +1,55 @@
+DI/MVC/VIEW
+
+
+ModelAndView
+
+DispatcherServlet(=중앙제어장치같은 존재)
+
+ResourceBundleViewResolver(=프로퍼티 파일)
+
+이 두개가 주로 ㅏㅏㅁㄶ이쓰임
+	★InternalResourceViewResolver
+	★BeanNameViewResolver	
+	
+viewResolver을 여러개 쓸 때에는 order로 우선순위를 정해서 사용한다	
+	
+<bean class="org.springframework.web.servlet.view.XmlViewResolver"
+     p:location="/WEB-INF/nonHtml-view.xml"
+     p:order="0"/>
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+     p:prefix="/WEB-INF/viewjsp/"
+     p:suffix=".jsp"
+     p:order="1"/>	
+	
+	
+2. HTML 특수 문자 처리 방식 설정
+'<입력폼>'는 html이 태그로 인식해버린다. 인식을 안하게 하려면 아래의 context-param코드에서 defaultHtmlEscape의 값을 거짓으로 설정한다.	
+	
+3. JSP를 이용한 뷰 구현
+	
+3.1	Message 출력을 위한 <spring:message> 커스텀 태그
+ 영문브라우저/한글브라우저 처럼 구분해서 만들고 싶을ㄸ에, jsp를 2개 만들지 않기 위해 사용하는 방법으로
+ 이 예제는 properties에 문자열을 다 넣어놓고서, 이 태그를 이용해서 갖다쓴다.
+
+		login.form.type=Login Type
+		login.form.id=ID
+		login.form.password=Password
+		login.form.submit=Login
+ 이런식으로
+ 
+3.2 SPRING이 제공하는 폼 관련 커스텀 태그
+
+<form:form> 커스텀 태그는 method 속성의 값은 "post"이 디폴트
+
+체크박스는 다중선택가능 / 라디오버튼은 단일선택(성별같은 체크를 할 때)
+
+3.5 <form:form>의 RESTful 지원
+ㄱ밧을 전송할때 데이터를 입력하려고? ->put/ 삭ㅈp하려고??->delete
+
+
+001
+jsp/login/login.do 이렇게 요청ㅎ애ㅑ한다?
+모델 -> 3개(1,2,3,4)
+
+잘 코딩하다가 안되면 930줄에 filter을 넣는다 /안넣으면 put과delete가 동작x
+

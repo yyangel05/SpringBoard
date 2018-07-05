@@ -1,0 +1,98 @@
+sf
+
+orgspringframework.오류?? -> lib가 깨졌을 확률
+
+db관련 라이브러리
+commons-dbcp-1.4
+commons-pool-1.5.6
+
+파일입출력 라이브러리
+commons-fileupload-1.2.2
+commons-io-2.0.1
+
+로그관련 라이브러리
+commons-logging-1.1.1
+
+member
+
+	<!-- 수정, 탈퇴, id찾기 같은 논리도 시간 되면 채워넣기-->
+	
+login
+
+## 문자열을 보내기 위해 ''로 감싸기 위함
+$$ 컬럼명처럼 따옴표로 감싸지지 않는 데이터는 달러로 묶는다
+
+board
+
+searchArticle    ->   HashMap / 댓글과 게시글의 데이터를 둘 다 넣어줄 수 없기에 map을 넣어줌
+
+스프링컨테이너에서 컨트롤러가 필요할 때 service를 갖다쓴다
+
+
+
+
+ LoginSessionModel loginModel, BindingResult result, HttpSession session
+ post로 날라온 정보를 받기 위한 자바빈?   ,유효성검증 , 로그인정보
+
+ApplicationContext -> 스프링 컨테이너
+
+ ------------------------------------------------
+/src/ibatis/member.xml
+/src/ibatis/login.xml
+/src/ibatis/board.xml
+
+/src/member/dao
+/src/member/model
+/src/member/service
+/src/member/controller
+/src/login/dao
+/src/login/service
+/src/login/controller
+/src/board/dao
+/src/board/model
+/src/board/service
+/src/board/controller
+ 
+ ------------------------------------------------
+ 
+[/src/net.nice19.smboard/ibatis/member.xml]
+[/src/net.nice19.smboard/ibatis/login.xml]
+[/src/net.nice19.smboard/ibatis/board.xml]
+[/src/config/applicationContext.xml]
+
+package net.nice19.smboard.login.dao;
+package net.nice19.smboard.login.service;
+package net.nice19.smboard.login.service;
+package net.nice19.smboard.login.controller;
+
+package net.nice19.smboard.member.model;
+package net.nice19.smboard.member.dao;
+import net.nice19.smboard.member.model.MemberModel;
+package net.nice19.smboard.member.service;
+package net.nice19.smboard.member.service;
+package net.nice19.smboard.member.controller;
+
+package net.nice19.smboard.board.model;
+package net.nice19.smboard.interceptor;
+package net.nice19.smboard.board.model;
+package net.nice19.smboard.board.dao;
+
+import net.nice19.smboard.board.model.BoardCommentModel;
+import net.nice19.smboard.board.model.BoardModel;
+package net.nice19.smboard.board.service;
+package net.nice19.smboard.board.controller;
+
+[/WebContent/css/board.css]
+[/WebContent/css/main.css]
+[/WEB-INF/board/login.jsp]
+[/WEB-INF/board/join.jsp]
+
+[/WEB-INF/board/list.jsp]
+
+userId, userPw, userName, joinDate 
+
+
+
+
+
+

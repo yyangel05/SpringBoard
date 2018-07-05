@@ -99,12 +99,12 @@
 
                 <div class="col-md-4">
                   <div class="form-group">
-                    <input class="form-control" id="userId" type="text" placeholder="Your mail address *" required="required" value="${userId}" >
+                    <input class="form-control" id="userId" name="userId"  type="text" placeholder="Your mail address *" required="required" value="${userId}" >
                     <span class="error"><form:errors path="LoginModel.userId"/></span><br/>
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="userPw" type="password" placeholder="Your password *" required="required" >
+                    <input class="form-control" id="userPw" name="userPw"  type="password" placeholder="Your password *" required="required" >
                     <span class="error"><form:errors path="LoginModel.userPw"/></span><br/><br/>
                     <p class="help-block text-danger"></p>
                   </div>
@@ -116,7 +116,7 @@
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
 
-                  <div id="success"></div>
+                  <div id="success">
                   <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
                 </div>
 

@@ -3,4 +3,125 @@
     PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
     
-<sqlMap namespace="board"></sqlMap>
+<sqlMap namespace="board">
+	<typeAlias alias="BoardModel" type="board.model.BoardModel"/>
+	<typeAlias alias="BoardCommentModel" type="board.model.BoardCommentModel"/>
+
+	<!-- 게시글 전체를 테이블로부터 가져온다 / list -->
+	<select id="getBoardList" parameterClass="java.util.HashMap" resultClass="BoardModel">
+		select  b.idx, b.writer, b.subject, b.content, b.hitcount, b.recommendcount, to_char(b.writeDate, 'YYYY-MM-DD HH:MI:SS') writeDate, count(c.idx) as "comment" ,b.writerId, b.fileName, b.rnum
+		from(
+			select a.idx, a.writer, a.subject, a.content, a.hitcount, a.recommendcount, a.writeDate, a.writerId, a.fileName, rownum rnum
+			from(   
+				select idx, writer, subject, content, hitcount, recommendcount, writeDate, writerId, fileName 
+				from yyboard order by idx desc) a
+				) b left outer join yyboard_comment c on b.idx = c.linkedarticlenum
+		where rnum between #startArticleNum# and #endArticleNum#		
+		group by 
+			 b.idx, b.writer, b.subject, b.content, b.hitcount, b.recommendcount, b.writedate, b.rnum, b.writerId, b.fileName
+			 order by b.idx desc
+	</select>
+	
+	<!-- 게시글번호에 해당하는 글 내용들을 가져온다 /view-->
+	<select id="getOneArticle" parameterClass="int" resultClass="BoardModel">
+		select idx, writer, subject, content, hitcount, recommendcount, writeDate, writerId, fileName
+		from yyboard
+		where idx = #idx#
+	</select>
+
+	<!-- 게시글을 검색하는 select -->
+	<select id="searchArticle" parameterClass="java.util.HashMap" resultClass="BoardModel">
+		select  b.idx, b.writer, b.subject, b.content, b.hitcount, b.recommendcount, to_char(b.writeDate, 'YYYY-MM-DD HH:MI:SS') writeDate, count(c.idx) as "comment" ,b.writerId, b.fileName, b.rnum
+		from(
+			select a.idx, a.writer, a.subject, a.content, a.hitcount, a.recommendcount, a.writeDate, a.writerId, a.fileName, rownum rnum
+			from(   
+				select idx, writer, subject, content, hitcount, recommendcount, writeDate, writerId, fileName 
+				from yyboard 
+				where $type$ like '%$keyword$%'
+				order by idx desc) a
+				) b left outer join yyboard_comment c on b.idx = c.linkedarticlenum
+		where rnum between #startArticleNum# and #endArticleNum#		
+		group by 
+			 b.idx, b.writer, b.subject, b.content, b.hitcount, b.recommendcount, b.writedate, b.rnum, b.writerId, b.fileName
+			 order by b.idx desc 
+	
+	</select>
+
+	<!-- 게시글을 작성하는 insert -->
+	<insert id="writeArticle" parameterClass="BoardModel">
+		insert into yyboard(idx, writer, subject, content, hitcount, recommendcount, writeDate, writerId, fileName)
+		values(boardlistseq.nextVal, #writer#, #subject#, #content#, 0, 0, sysdate, #writerId#, #fileName#)
+	</insert>
+
+	<!-- 조회수 증가 -->
+	<update id="updateHitcount" parameterClass="java.util.HashMap">
+		update yyboard
+		set hitcount = #hitcount#
+		where idx = #idx#
+	</update>
+	
+	<!-- 추천수 증가 -->
+	<update id="updateRecommendcount" parameterClass="java.util.HashMap">
+		update yyboard
+		set recommendcount = #recommendcount#
+		where idx = #idx#
+	</update>
+	
+	<!-- 게시글을 수정한다 -->
+	<update id="modifyArticle" parameterClass="BoardModel">
+		update yyboard
+		set subject = #subject#, content = #content#, fileName = #fileName#
+		where idx = #idx#	
+	</update>
+	
+	<!-- 게시글을 삭제한다 -->
+	<delete id="deleteArticle" parameterClass="int">
+		delete from yyboard
+		where idx = #idx#		
+	</delete>
+	
+	<!-- 검색했을 때 글의 개수 -->
+	<select id="getSearchTotalNum" resultClass="int">
+		select count(idx)
+		from yyboard
+		where $type$ like '%$keyword$%'
+	</select>
+	
+	<!-- 입력된 행의 수  -->
+	<select id="getTotalNum" resultClass="int">
+		select count(idx)
+		from yyboard
+	</select>
+	
+	
+	
+	<!-- 덧글의 리스트를 보여준다 -->
+	<select id="getCommentList" parameterClass="int" resultClass="BoardCommentModel">
+		select idx, writer, content, writeDate, linkedArticleNum, writerId
+		from yyboard_comment
+		where linkedArticleNum = #idx#
+		order by idx asc
+	</select>
+	
+	<!-- 덧글을 작성한다 -->
+	<insert id="writeComment" parameterClass="BoardCommentModel">
+		insert into yyboard_comment(idx, writer, content, writeDate, linkedArticleNum, writerId)
+		values(boardcommentseq.nextVal, #writer#, #content#, sysdate, #linkedArticleNum#, #writerId#)
+	</insert>
+	
+	<!-- 덧글을 하나만 가져온다 -->
+	<select id="getOneComment" parameterClass="int" resultClass="BoardCommentModel">
+		select idx, writer, content, writeDate, linkedArticleNum, writerId
+		from yyboard_comment
+		where idx = #idx#
+	</select>
+	
+	<!-- 덧글을 삭제한다 -->
+	<delete id="deleteComment" parameterClass="int">
+		delete from yyboard_comment
+		where idx = #idx#
+	</delete>
+	
+	
+
+</sqlMap>

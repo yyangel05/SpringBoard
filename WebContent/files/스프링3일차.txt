@@ -1,0 +1,74 @@
+자바빈의 초기화작업?
+
+searchService -> 모델
+searchResult 
+
+모델의 역할은 처리하는것. 처리로직을 따로 만들어서 쓰고 싶을때 씀. 
+
+ Controller  Service  Dao  Ibatis/Mybatis    (분산처리??? 컨트롤러만 만들어서 작업할거면 스프링을 할 이유가 없음.)
+
+ String ->null이 기본값
+ Int ->0이 기본값
+ 
+ 
+ 
+ validation
+ 서버에서 검증하는 방식은 db와 연동하여서 아이디 사용 유무를 체크할 때 좋은방법일수있다
+ 
+ 
+ 
+ 8.요청 uri매칭
+ 
+  "/game"만 찾아서 "/game/info"는 수행되지않는다
+  해결하는방법
+  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" p:alwaysUserFullPath="true"/>
+  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" p:alwaysUserFullPath="true"/>
+
+008예제는
+이제는 .do가 필요없는 방법이 된다.  
+
+	<bean class="madvirus.spring.chap06.controller.GameInfoController" />
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="alwaysUseFullPath" value="true" />		
+	</bean>
+	
+전송된 데이터 받기	
+get ->@RequestParam
+path ->@PathVariable
+
+http://localhost:8080/SpringMVC01/game/users/madvirus/characters/10 이런식으로 path에 값을 넣어 보내면 
+PathVariable이 받아서 작업을 한다
+
+- org.springframework.validation.Errors Interface는 유효성 검증 결과를 저장할 때 사용되며, 
+- org.springframework.validation.BindingResult Interface는 Errors Interface의 하위 Interface로서 폼 값을 커맨드 객체에
+바인딩(binding)한 결과를 저장하고 에러 Code로부터 에러 Message를 가져온다.
+
+
+
+010
+
+
+reject는 자바빈의 전체적인 에러 / rejectValue는 자바빈의 특정 변수에 대한 에러를 
+에러 검사할때는 bindingResult?를 활용할수있음.
+
+(쓰이는 용도가 다른 validate를 제외하고) 컨트롤러를 제외한 모든것은 모델이다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
