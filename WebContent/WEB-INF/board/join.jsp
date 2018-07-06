@@ -12,22 +12,6 @@
 <!-- <link href="../css/main.css" rel="stylesheet" type="text/css"> -->
 <!-- <link href="/SpringBoard/css/main.css" rel="stylesheet"> -->
 
-  <!-- Bootstrap core CSS -->
-    <link href="/SpringBoard/style/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="/SpringBoard/style/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
-    <link href="/SpringBoard/style/css/agency.min.css" rel="stylesheet">
-
-
-
-
 
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 <c:if test="${errCode == null }">
@@ -68,7 +52,7 @@
 <body onload="errCodeCheck()" id="page-top">
 
 <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">SpringBoard</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +70,7 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
 
 <!--  --------------------------------------------------------------------------------- -->
@@ -154,7 +138,7 @@
 	</form>
 
     <!-- Footer -->
-    <footer>
+   <!--  <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -192,7 +176,7 @@
         </div>
       </div>
     </footer>
-
+ -->
 
 
 

@@ -50,6 +50,28 @@
 		<url-pattern>/download/*</url-pattern>
 	</servlet-mapping>
   
+<!-- 타일즈 설정 -->  
+
+	<filter>
+		<filter-name>httpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>httpMethodFilter</filter-name>
+		<servlet-name>dispatcherTiles2</servlet-name>
+	</filter-mapping>
+
+   <servlet>
+  	<servlet-name>dispatcherTiles2</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>dispatcherTiles2</servlet-name>
+  	<url-pattern>/tiles2/*</url-pattern>
+  </servlet-mapping>
   
   
   

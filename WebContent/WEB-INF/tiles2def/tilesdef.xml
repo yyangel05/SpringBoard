@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	
+	<tiles-definitions>
+	
+<!-- 로그인 폼과 성공 타일즈 등록 -->	
+		<definition name="base_layout" template="/WEB-INF/template/layout.jsp" preparer="menuPreparer">
+		<!-- <definition name="base_layout" template="/WEB-INF/viewtiles2/template/layout.jsp"> -->
+			<put-attribute name="header" value="/WEB-INF/template/header.jsp"/>
+			<put-attribute name="footer" value="/WEB-INF/template/footer.jsp"/>
+		</definition>
+		
+		<definition name="loginForm" extends="base_layout">
+			<put-attribute name="title" value="로그인화면"/>
+			<put-attribute name="body" value="/WEB-INF/board/login.jsp"/>
+		</definition>
+		
+		<definition name="loginSuccess" extends="base_layout">
+			<put-attribute name="title" value="게시판"/>
+			<put-attribute name="body" value="/WEB-INF/board/list.jsp"/>
+		</definition>
+
+<!-- 회원가입 폼과 완료 타일즈 등록 -->		
+		<definition name="registMemberForm" extends="base_layout">
+			<put-attribute name="title" value="회원가입"/>
+			<put-attribute name="body" value="/WEB-INF/board/join.jsp"/>
+		</definition>
+		
+		<definition name="registMember" extends="base_layout">
+			<put-attribute name="title" value="로그인화면"/>
+			<put-attribute name="body" value="/WEB-INF/board/login.jsp"/>
+		</definition>		
+		
+		
+		
+	</tiles-definitions>

@@ -22,7 +22,8 @@ public class LoginController {
 	
 	@RequestMapping("/login.yy")
 	public String login() {
-		return "/board/login";
+		//return "/board/login";
+		return "loginForm";
 	}
 	
 	@RequestMapping(value="/login.yy", method=RequestMethod.POST) 
@@ -33,7 +34,9 @@ public class LoginController {
 		//폼의 검증
 		new LoginValidator().validate(loginModel, result);
 		if(result.hasErrors()) {
-			mav.setViewName("/board/login");
+			//mav.setViewName("/board/login");
+			//return mav;
+			mav.setViewName("loginSuccess");
 			return mav;
 		}
 		
@@ -48,7 +51,8 @@ public class LoginController {
 		if(loginCheckResult == null) {
 			mav.addObject("userId", userId);
 			mav.addObject("errCode",1); //("가입된 이메일 주소가 아닙니다!");
-			mav.setViewName("/board/login");
+			//mav.setViewName("/board/login");
+			mav.setViewName("loginForm"); //로그인창으로 포워딩?
 			return mav;
 		}
 		
@@ -63,7 +67,8 @@ public class LoginController {
 		else {
 			mav.addObject("userId", userId);
 			mav.addObject("errCode",2); //("비밀번호가 일치하지 않습니다!");
-			mav.setViewName("/board/login"); //로그인창으로 포워딩?
+			//mav.setViewName("/board/login"); //로그인창으로 포워딩?
+			mav.setViewName("loginForm"); //로그인창으로 포워딩?
 			return mav;
 		}
 		
@@ -72,7 +77,8 @@ public class LoginController {
 	@RequestMapping("/logout.yy")
 	public String logout(HttpSession session) {
 		session.invalidate(); //세션 무효화
-		return "redirect:login.yy"; //로그인창으로 리다이렉트
+		//return "redirect:login.yy"; //로그인창으로 리다이렉트
+		return "redirect:tiles2/login.yy"; //로그인창으로 리다이렉트
 	}
 	
 
