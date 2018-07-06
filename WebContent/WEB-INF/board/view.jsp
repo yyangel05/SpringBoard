@@ -83,7 +83,9 @@
 		<c:if test="${board.fileName != null }">
 		<tr>
 			<td colspan="4" align="left"><span class="date">첨부파일:&nbsp;
-			<a href="<%=request.getContextPath() %>/files/${board.fileName }" target="_blank">${board.fileName}</a></span>
+			<%-- <a href="<c:url value='/download/file'/>">/download/file</a> --%>
+			<%-- <a href="<%=request.getContextPath() %>/download/file/${board.fileName }" target="_blank">${board.fileName}</a></span> --%>
+			<a href="/SpringBoard/download/download.yy?idx=${board.idx }&${board.fileName }" target="_blank">${board.fileName}</a></span>
 			</td>
 		</tr>
 		</c:if>

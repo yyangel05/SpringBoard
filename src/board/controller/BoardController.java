@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,8 +28,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class BoardController {
 	//DI
 	private ApplicationContext context = new ClassPathXmlApplicationContext("/config/applicationContext.xml");
+	
 	private BoardService boardService = (BoardService) context.getBean("boardService");
 	
+		//다운로드때문에 넣어봄
+	private WebApplicationContext context2 = null;
 	
 	//게시물 페이징 변수
 	private int currentPage =1;
@@ -39,7 +43,9 @@ public class BoardController {
 	private int totalNum = 0;
 	
 	//파일 업로드 경로
-	private String uploadPath = "C:\\Java\\App\\SpringBoard\\WebContent\\files\\";
+	//private String uploadPath = "C:\\Java\\App\\SpringBoard\\WebContent\\files\\";  //학원pc경로
+	private String uploadPath = "C:\\Users\\NTGAYEON\\git\\SpringBoard\\WebContent\\files\\"; //노트북 경로
+	
 	
 	@RequestMapping("/list.yy")
 	public ModelAndView boardList(HttpServletRequest request, HttpServletResponse response) {
@@ -161,7 +167,9 @@ public class BoardController {
 	//게시글 상세보기를 한다
 	@RequestMapping("/view.yy")
 	public ModelAndView boardView(HttpServletRequest request) {
+		
 		int idx = Integer.parseInt(request.getParameter("idx"));//get으로 날아온 idx를 인트로 변환하여 idx변수에 설정
+		
 		BoardModel board = boardService.getOneArticle(idx); //번호에 해당하는 게시글 내용을 가져오는 쿼리문을 실행하게 한다
 		boardService.updateHitcount(board.getHitcount()+1, idx); //조회수 증가시키기
 		
@@ -170,6 +178,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("board", board); //jsp에서 board라는 이름의 자바빈 객체 내용을 갖다쓸 수 있다.
 		mav.addObject("commentList",commentList); //jsp에서 commentList라는 이름의 자바빈 객체 내용을 갖다쓸 수 있다.
+		
 		mav.setViewName("/board/view");
 		return mav;
 	}

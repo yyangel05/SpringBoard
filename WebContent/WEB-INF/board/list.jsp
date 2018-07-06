@@ -55,7 +55,6 @@
 	
 	</div>
 	
-	
 	<!-- 게시글 리스트가 나오는 화면 -->
 	<table border="0" class="boardTable">
 		<thead>
