@@ -78,10 +78,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="login.yy">Login</a>
+              <a class="nav-link js-scroll-trigger" href="/SpringBoard/login.yy">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="member/join.yy">Register</a>
+              <a class="nav-link js-scroll-trigger" href="/SpringBoard/member/join.yy">Register</a>
             </li>
           </ul>
         </div>
@@ -139,7 +139,7 @@
                 <div class="col-lg-12 text-center">
 
                   <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">register</button>
                   <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="reset">rewrite</button>
                 </div>
 

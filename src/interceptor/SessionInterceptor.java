@@ -19,8 +19,9 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 		
 		//로그인을 했으면 로그인/회원가입 창으로 갈 수 없도록 설정한다.
 		if(request.getRequestURI().equals("/SpringBoard/login.yy") || request.getRequestURI().equals("/SpringBoard/member/join.yy")) {
+			//세션에서 가져온 userId값이 존재하면 
 			if(userId != null) {
-				response.sendRedirect(request.getContextPath() + "/board/list.yy");
+				response.sendRedirect(request.getContextPath() + "/board/list.yy"); //게시판의 목록으로 리다이렉트
 				return true;
 			}
 			else {

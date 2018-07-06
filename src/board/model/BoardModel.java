@@ -2,17 +2,17 @@ package board.model;
 
 public class BoardModel {
 	
-	private int rnum;
-	private int idx;
-	private String writer;
-	private String subject;
-	private String content;
-	private int hitcount = 0;
-	private int recommendcount = 0;
-	private int comment = 0;
-	private String writeDate;
-	private String writerId;
-	private String fileName;
+	private int rnum; 
+	private int idx; //글번호
+	private String writer; //작성자
+	private String subject; //제목
+	private String content; //내용
+	private int hitcount = 0; //조회수
+	private int recommendcount = 0; //추천수
+	private int comment = 0; //덧글수
+	private String writeDate; //작성일
+	private String writerId; //유저아이디
+	private String fileName; //파일이름
 	
 	public int getRnum() {
 		return rnum;

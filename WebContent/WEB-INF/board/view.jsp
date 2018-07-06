@@ -8,6 +8,7 @@
 
 <link href="<%=request.getContextPath()%>/css/board.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
+
 	function errCodeCheck() {
 		var errCode = <%= request.getParameter("errCode") %>;
 		if(errCode != null || errCode != "") {
@@ -62,6 +63,7 @@
 		<tr>
 			<td colspan="4"><h3>${board.subject }</h3></td>
 		</tr>
+		
 		<tr>
 			<th>작성자</th>
 			<th>조회수</th>
@@ -74,6 +76,7 @@
 			<td>${board.recommendcount }</td>
 			<td>${board.writeDate }</td>		
 		</tr>
+		
 		<tr>
 			<th colspan="4">내용</th>
 		</tr>

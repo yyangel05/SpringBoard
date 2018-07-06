@@ -33,24 +33,30 @@
 <div class="wrapper">
 	<div class="navBar">
 		<ul>
-			<li><a href="list.yy">스프링 게시판</a></li>
-			<li><a href="../logout.yy">로그아웃</a></li>
+			<li><a href="/SpringBoard/board/list.yy">스프링 게시판</a></li>
+			<li><a href="/SpringBoard/logout.yy">로그아웃</a></li>
 		</ul>
+		
+		<!-- 검색 관련 기능 -->
 		<form action="list.yy" method="get">
+			<!-- 검색 셀렉트박스 -->
 			<select id="type" name="type">
 				<option value="subject">제목</option>
 				<option value="content">내용</option>
 				<option value="writer">작성자</option> 
 			</select>
+			<!-- 검색어 입력창과 전송창 -->
 			<input type="text" id="keyword" name="keyword" 
-				value="<%if(request.getParameter("keyword") != null) {out.print(request.getParameter("keyword"));}
-						 else{out.print("");}%>"/>
+				   value="<%if(request.getParameter("keyword") != null) {out.print(request.getParameter("keyword"));}
+						    else{out.print("");}%>"/>
 			<input type="submit" value="검색"/>		 
 					 
 		</form>
 	
 	</div>
 	
+	
+	<!-- 게시글 리스트가 나오는 화면 -->
 	<table border="0" class="boardTable">
 		<thead>
 		<tr>
@@ -64,6 +70,7 @@
 		</tr>
 		</thead>
 		<tbody>
+		<!-- 게시글 리스트가 담겨있는 boardList의 내용을 꺼내는 반복문 수행. -->
 			<c:forEach var="board" items="${boardList}">
 				<tr>
 					<td class="idx">${board.rnum}</td>
@@ -72,10 +79,10 @@
 						<a href="view.yy?idx=${board.idx}">${board.subject}</a></td>
 					<td class="writer">
 						<c:choose>
-							<c:when test="${board.writerId == userId }">
+							<c:when test="${board.writerId == userId }"> 
 								<strong>${board.writer}</strong>
 							</c:when>
-							<c:otherwise>${board.writer}</c:otherwise>
+							<c:otherwise>${board.writer}</c:otherwise> 
 						</c:choose>
 					</td>	
 					<td class="comment">${board.comment}</td>	

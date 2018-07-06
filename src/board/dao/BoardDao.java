@@ -37,10 +37,10 @@ public interface BoardDao {
 	//추천수 증가
 	void updateRecommendCount(int recommendcount, int idx);
 
-	// get contents count
+	//게시글의 갯수 세기
 	int getTotalNum();
 	
-	//검색 결과의 갯수 세기
+	//검색 결과의 게시글 갯수 세기
 	int getSearchTotalNum(String type, String keyword);
 	
 	//덧글 삭제하기

@@ -65,10 +65,10 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="login.yy">Login</a>
+              <a class="nav-link js-scroll-trigger" href="/SpringBoard/login.yy">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="member/join.yy">Register</a>
+              <a class="nav-link js-scroll-trigger" href="/SpringBoard/member/join.yy">Register</a>
             </li>
           </ul>
         </div>
@@ -91,7 +91,6 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-           <%--  <form id="contactForm" name="sentMessage" novalidate="novalidate"> --%>
               <div class="row">
 
                 <div class="col-md-4">
@@ -122,7 +121,6 @@
 
 
               </div>
-            <%-- </form> --%>
           </div>
         </div>
       </div>

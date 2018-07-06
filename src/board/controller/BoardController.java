@@ -158,82 +158,89 @@ public class BoardController {
 				return pageHtml;
 	}
 	
+	//게시글 상세보기를 한다
 	@RequestMapping("/view.yy")
 	public ModelAndView boardView(HttpServletRequest request) {
-		int idx = Integer.parseInt(request.getParameter("idx"));
-		BoardModel board = boardService.getOneArticle(idx);
+		int idx = Integer.parseInt(request.getParameter("idx"));//get으로 날아온 idx를 인트로 변환하여 idx변수에 설정
+		BoardModel board = boardService.getOneArticle(idx); //번호에 해당하는 게시글 내용을 가져오는 쿼리문을 실행하게 한다
 		boardService.updateHitcount(board.getHitcount()+1, idx); //조회수 증가시키기
 		
-		List<BoardCommentModel> commentList = boardService.getCommentList(idx);
+		List<BoardCommentModel> commentList = boardService.getCommentList(idx); //게시글에 해당하는 덧글목록을 가져오는 쿼리를 실행하게 한다
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("board", board);
-		mav.addObject("commentList",commentList);
+		mav.addObject("board", board); //jsp에서 board라는 이름의 자바빈 객체 내용을 갖다쓸 수 있다.
+		mav.addObject("commentList",commentList); //jsp에서 commentList라는 이름의 자바빈 객체 내용을 갖다쓸 수 있다.
 		mav.setViewName("/board/view");
 		return mav;
 	}
 	
+	//게시글 작성하기 폼을 띄운다.
 	@RequestMapping("/write.yy")
 	public String boardWrite(@ModelAttribute("BoardModel") BoardModel boardModel) {
 		return "/board/write";
 	}
 	
+	//게시글 작성하기를 수행한다. (작성완료를 누르고, post방식으로 전송된 값을 db에 넣는다)
 	@RequestMapping(value="/write.yy", method=RequestMethod.POST)
 	public String boardWriteProc(@ModelAttribute("BoardModel") BoardModel boardModel, MultipartHttpServletRequest request) {
 
 		//MultipartHttpServletRequest는 업로드를 위함.(4장 10섹션의 3개중 2번째방법)
 		
 		//업로드 파일 얻기
-		MultipartFile file = request.getFile("file");
-		String fileName = file.getOriginalFilename();
-		File uploadFile = new File(uploadPath + fileName);
+		MultipartFile file = request.getFile("file"); //파일객체 생성
+		String fileName = file.getOriginalFilename(); //파일이름을 얻어서 fileName변수 생성
+		File uploadFile = new File(uploadPath + fileName); //파일 업로드 경로 설정한  uploadFile 파일객체 생성
 		
 		//같은 이름의 파일이 이미 존재하면
 		if(uploadFile.exists()) {
-			fileName = new Date().getTime() + fileName;
-			uploadFile = new File(uploadPath + fileName);
+			fileName = new Date().getTime() + fileName; //오늘날짜+파일이름 으로 파일이름을 바꾼다
+			uploadFile = new File(uploadPath + fileName); //업로드 경로와 파일이름을 합친다
 		}
 		
 		//업로드 경로에 파일 저장하기
 		try {
-			file.transferTo(uploadFile);
+			file.transferTo(uploadFile); 
 		} catch(Exception e) {
 			
 		}
-		boardModel.setFileName(fileName);
+		boardModel.setFileName(fileName); //자바빈의 파일이름을 설정
 		
-		//?
-		String content = boardModel.getContent().replaceAll("\r\n", "<br/>");
-		boardModel.setContent(content);
+		//줄바꿈을 해주는 코드
+		String content = boardModel.getContent().replaceAll("\r\n", "<br/>"); //<br/>을 줄바꿈으로 바꿔서  content변수에 담는다
+		boardModel.setContent(content); //자바빈에 내용변수 세팅
 		
-		boardService.writeArticle(boardModel);
+		boardService.writeArticle(boardModel); //보드서비스의 writeArticle이라는 이름의 insert문을 실행하게 한다.
 		
-		return "redirect:list.yy";
+		return "redirect:list.yy"; //작성완료되면 목록화면으로 리다이렉트
 	}
 	
+	//게시글 수정하기 폼을 띄운다.
 	@RequestMapping("/modify.yy")
 	public ModelAndView boardModify(HttpServletRequest request, HttpSession session) {
-		String userId = (String) session.getAttribute("userId");
-		int idx = Integer.parseInt(request.getParameter("idx"));
+		String userId = (String) session.getAttribute("userId");//세션으로부터 userid를 얻어 userId변수에 넣는다.
+		int idx = Integer.parseInt(request.getParameter("idx")); //get방식으로 타고 날라온 idx를 idx변수에 넣는다
 		
-		BoardModel board = boardService.getOneArticle(idx);
+		BoardModel board = boardService.getOneArticle(idx); //게시글에 해당하는 내용을 db에서 가져와서 board라는 자바빈객체에 담음
 		String content = board.getContent().replaceAll("<br/>","\r\n");
 		board.setContent(content);
 		
 		ModelAndView mav = new ModelAndView();
 		
+		//글 작성자 아이디와 내 아이디가 다르면 
 		if(!userId.equals(board.getWriterId())) {
-			mav.addObject("errCode","1");
-			mav.addObject("idx",idx);
-			mav.setViewName("redirect:view.yy");
+			mav.addObject("errCode","1"); // errCodeCheck함수의 ("잘못된 접근 경로입니다");라는 에러 코드를 나타냄.
+			mav.addObject("idx",idx); //view를 눌렀을때의 전송된 글번호를 idx에 설정
+			mav.setViewName("redirect:view.yy"); //view로 리다이렉트
 		}
+		//글 작성자 아이디와 내 아이디가 같으면
 		else {
-			mav.addObject("board",board);
-			mav.setViewName("/board/modify");
-		}
+			mav.addObject("board",board); //게시글 내용을 담은 board객체를 mav에 담음.
+			mav.setViewName("/board/modify"); //보드 수정하기 폼으로 포워딩
+		} 
 		return mav;
 	}
 	
+	//게시글 수정하기를 수행함. 
 	@RequestMapping(value= "/modify.yy", method=RequestMethod.POST)
 	public ModelAndView boardModifyProc(@ModelAttribute("BoardModel") BoardModel boardModel, MultipartHttpServletRequest request) {
 		String orgFileName = request.getParameter("orgFile");
@@ -242,13 +249,16 @@ public class BoardController {
 		
 		boardModel.setFileName(orgFileName);
 		
+		//새로 업로드된 파일객체가 존재하고, 파일 이름이 존재하면
 		if(newFile != null && !newFileName.equals("")) {
-			if(orgFileName != null || !orgFileName.equals("")) {
+			//기존 퍄일 이름이 존재하면
+			if(orgFileName != null || !orgFileName.equals("")) { 
 				//기존의 파일을 지움
 				File removeFile = new File(uploadPath + orgFileName);
 				removeFile.delete();
 			}
 			
+			//새로운 파일 이름을 넣은 파일객체 생성
 			File newUploadFile = new File(uploadPath + newFileName);
 			
 			try {
@@ -259,14 +269,15 @@ public class BoardController {
 			boardModel.setFileName(newFileName);
 		}
 		
+		//줄바꿈을 수행하는 코드
 		String content = boardModel.getContent().replaceAll("\r\n", "<br/>");
 		boardModel.setContent(content);
 		
-		boardService.modifyArticle(boardModel);
+		boardService.modifyArticle(boardModel); //게시글을 수정하는 쿼리문을 실행하게 한다.
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("idx", boardModel.getIdx());
-		mav.setViewName("redirect:/board/view.yy");
+		mav.setViewName("redirect:/board/view.yy"); //잘 수행되면 view로 리다이렉트
 		return mav;
 	}
 	
@@ -275,36 +286,39 @@ public class BoardController {
 		String userId = (String) session.getAttribute("userId");
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		
-		BoardModel board = boardService.getOneArticle(idx);
+		BoardModel board = boardService.getOneArticle(idx); //해당 글번호의 게시글을 가져오는 쿼리를 실행해 자바빈에 담는다
 		
 		ModelAndView mav = new ModelAndView();
 		
+		//게시글 작성자와 내 아이디가 서로 다르면
 		if(!userId.equals(board.getWriterId())) {
-			mav.addObject("errCode", "1");
-			mav.addObject("idx",idx);
-			mav.setViewName("redirect:view.yy");
+			mav.addObject("errCode", "1"); //errCodeCheck함수의 case 1:을 수행. ("잘못된 접근 경로입니다");
+			mav.addObject("idx",idx); //파라미터로 전송된 idx를 mav에 설정
+			mav.setViewName("redirect:view.yy"); //상세보기로 리다이렉트
 		}
 		else {
-			List<BoardCommentModel> commentList = boardService.getCommentList(idx);
 			
-			if(commentList.size() > 0) {
-				mav.addObject("errCode","2");
-				mav.addObject("idx",idx);
-				mav.setViewName("redirect:view.yy");
+			List<BoardCommentModel> commentList = boardService.getCommentList(idx); //덧글의 리스트를 얻어 리스트객체에 넣는다
+			
+			if(commentList.size() > 0) { //리스트객체의 크기가 0보다 크면(덧글이 존재하면)
+				mav.addObject("errCode","2"); //errCodeCheck함수의 case 2:을 수행. ("댓글이 있어 글을 삭제하실 수 없습니다");
+				mav.addObject("idx",idx);  //파라미터로 전송된 idx를 mav에 설정
+				mav.setViewName("redirect:view.yy"); //상세보기로 리다이렉트
 			}
-			else {
-				if(board.getFileName() != null) {
-					File removeFile = new File(uploadPath + board.getFileName());
-					removeFile.delete();
+			else { //덧글이 없다면
+				if(board.getFileName() != null) { //파일이름이 존재하면 삭제 수행
+					File removeFile = new File(uploadPath + board.getFileName()); //파일객체를 생성한다.
+					removeFile.delete(); //파일을 삭제한다
 				}
-				boardService.deleteArticle(idx);
+				boardService.deleteArticle(idx); //게시글을 삭제하는 쿼리를 수행
 				
-				mav.setViewName("redirect:list.yy");
+				mav.setViewName("redirect:list.yy"); //목록으로 리다이렉트
 			}
 		}
 		return mav;
 	}
 	
+	//게시글 추천하기 
 	@RequestMapping("/recommend.yy")
 	public ModelAndView updateRecommendcount(HttpServletRequest request, HttpSession session) {
 		int idx = Integer.parseInt(request.getParameter("idx"));
@@ -313,28 +327,30 @@ public class BoardController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		//내 아이디와 게시글작성자가 같으면 
 		if(userId.equals(board.getWriterId())) {
-			mav.addObject("errCode","1");
+			mav.addObject("errCode","1"); ////errCodeCheck함수의 case 1:을 수행. ("잘못된 경로란다");
 		}
 		else {
-			boardService.updateRecommendCount(board.getRecommendcount() + 1, idx);
+			boardService.updateRecommendCount(board.getRecommendcount() + 1, idx); //추천수 증가시키는 쿼리를 실행하게 함
 		}
 		
-		mav.addObject("idx", idx);
-		mav.setViewName("redirect:/board/view.yy");
+		mav.addObject("idx", idx); 
+		mav.setViewName("redirect:/board/view.yy"); //상세보기로 리다이렉트
 		
 		return mav;
 	}
 	
 	@RequestMapping("/commentWrite.yy")
 	public ModelAndView commentWriteProc(@ModelAttribute("CommentModel") BoardCommentModel commentModel) {
+		
 		String content = commentModel.getContent().replaceAll("\r\n", "<br/>");
 		commentModel.setContent(content);
 		
-		boardService.writeComment(commentModel);
+		boardService.writeComment(commentModel); //덧글을 작성하는 쿼리를 수행하게함
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("idx", commentModel.getLinkedArticleNum());
-		mav.setViewName("redirect:view.yy");
+		mav.setViewName("redirect:view.yy"); //상세보기로 리다이렉트
 		
 		return mav;
 	}
@@ -349,15 +365,16 @@ public class BoardController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		//덧글 작성자와 내 아이디가 다르면
 		if(!userId.equals(comment.getWriterId())) {
-			mav.addObject("errCode","1");
+			mav.addObject("errCode","1"); //errCodeCheck함수의 case 1:을 수행. ("잘못된 경로란다");
 		}
 		else {
-			boardService.deleteComment(idx);
+			boardService.deleteComment(idx); //덧글을 삭제하는 쿼리를 수행하게함
 		}
 		
 		mav.addObject("idx",linkedArticleNum);
-		mav.setViewName("redirect:view.yy");
+		mav.setViewName("redirect:view.yy"); //상세보기로 리다이렉트
 		
 		return mav;
 	}

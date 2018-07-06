@@ -2,12 +2,12 @@ package board.model;
 
 public class BoardCommentModel {
 	
-	private int idx;
-	private String writer;
-	private String content;
-	private String writeDate;
-	private int linkedArticleNum;
-	private String writerId;
+	private int idx; //µ¡±Û¹øÈ£
+	private String writer; //µ¡±ÛÀÛ¼ºÀÚ
+	private String content; //µ¡±Û³»¿ë
+	private String writeDate; //µ¡±ÛÀÛ¼ºÀÏ
+	private int linkedArticleNum; //µ¡±ÛÀÌ ´Þ¸° ±Û¹øÈ£
+	private String writerId; //À¯Àúid
 	
 	public int getIdx() {
 		return idx;
