@@ -10,7 +10,7 @@
 
 
 <!-- Navigation -->
- <div class="container">
+<!--  <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">SpringBoard</a>
@@ -31,6 +31,34 @@
       </div>
     </nav>
 </div>
+ -->
+
+<!--Navigation Section-->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-sm-12 col-xs-12">
+				<div class="navbar-header text-center">
+					<a href="home.html" class="navbar-brand">SpringBoard</a>
+				</div>
+			</div>
+			<div class="col-md-9 col-sm-12 col-xs-12">
+				<div class="collapse navbar-collapse" id="tv-navbar">
+					<ul class="nav navbar-nav text-right main-menu">
+						<li class=""><a href="/SpringBoard/tiles2/login.yy" class="tv-menu">login</a></li>
+						<li class=""><a href="/SpringBoard/tiles2/member/join.yy" class="tv-menu">register</a></li>
+					</ul>
+				</div>
+			</div>          
+		</div>
+	</div>
+        </nav>
+<!--End Navigation Section-->
+
+
+
+
+
 
 </body>
 </html>

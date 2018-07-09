@@ -37,7 +37,7 @@
 </script>
 </head>
 
-<body id="page-top" onload="checkErrCode()">
+<body id="blogsingleleftsidebar" onload="checkErrCode()">
 
 <!-- Navigation -->
    <!--  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -65,8 +65,58 @@
 	<form:errors path="LoginModel"/>
 	<form action="login.yy" method="post">
 
+
+  <!--Banner Section-->
+        <div class="tv-banner-image tv-blog-banner-img" style="background: rgba(0, 0, 0, 0) url('/SpringBoard/style/images/Image24.jpeg') no-repeat scroll center top / cover;">
+            <div class="tv-banner-title">
+                <h1>로그인</h1>
+            </div>
+        </div>
+        <!--End Banner Section-->
+
+        <!--Contact Us Section-->
+        <section id="contact-us" class="tv-section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="contact-block-color">
+                            <div class="row">
+                                    <div class="contact-us-box">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12 contact-box-area"></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12 contact-box-area">
+                                                <h3 class="contact-title" align="center">
+                                                    login Form
+                                                </h3>
+                                                <div class="contact-form">
+                                                    <form>
+                                                       
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Your mail address *" type="text"  id="userId" name="userId" value="${userId}">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Your password *" type="password" id="userPw" name="userPw" >
+                                                        </div>
+                                                        <div align="center">
+                                                            <button type="submit" class="btn btn-contact-send">login</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                           <div class="col-md-4 col-sm-4 col-xs-12 contact-box-area"></div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Contact Us Section-->
+
+
     <!-- Contact -->
-    <section id="contact">
+   <%--  <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -111,54 +161,8 @@
       </div>
     </section>
     
-    </form>
-    
-
-    <!-- Footer -->
-    <!-- <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2018</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
- -->
-
-
-
-
+    </form> --%>
+   
 
 <%-- <div class="wrapper">
 	<h3>스프링 게시판</h3>

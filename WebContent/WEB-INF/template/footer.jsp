@@ -9,7 +9,7 @@
 <body id="page-top">
 
  <!-- Footer -->
-    <footer>
+<!--     <footer>
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -47,7 +47,33 @@
         </div>
       </div>
     </footer>
-
+ -->
+  <!--Footer Section-->
+        <footer id="contactus" class="tv-section-padding">
+            <div class="tv-section-footer-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="tv-footer-content">
+                                <h3>spring board</h3>
+                                <p>this project is on the education to improve spring3.0 coding skill for student. Data from kh academy. </p>
+                                <p>I am student for getting a job in computer engineering industry. </p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="tv-footer-copyright text-center">
+                                <!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->
+                                <p>&copy; All right reserved. Designed by <a href="https://www.themevault.net">ThemeVault</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </footer>
+  <!--End Footer Section-->
+ 
+ 
 
 </body>
 </html>

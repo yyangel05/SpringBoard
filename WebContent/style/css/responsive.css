@@ -1,0 +1,1391 @@
+/*
+Template Name:BiteOnBite
+File Name: responsive.css
+Author Name: ThemeVault
+Author URI: http://www.themevault.net/
+License URI: http://www.themevault.net/license/
+*/
+
+/* Landscape phones and smaller */
+
+@media (min-width: 1199px) and (max-width: 1240px) {}
+
+@media (max-width: 1199px) {
+
+}
+
+@media (min-width:1000px) and (max-width:1100px)
+{
+    /*Navigation CSS*/
+    .navbar-brand {
+        font-size: 16px;
+    }
+    /*End Navigation CSS*/
+
+    /*Menu CSS*/
+    .tv-menu
+    {
+        font-size: 10px;
+        padding:17px 9px !important;
+    }
+    .tv-book-button > a {
+        font-size: 12px;
+    }
+    /*End Menu CSS*/
+
+    /*Banner CSS*/
+    .tv-banner-image {
+        height: 480px;
+    }
+    .tv-banner-title {
+        width: 100%;
+    }
+    /*End Banner CSS*/
+
+    /*Lunch CSS*/
+    .tv-menu-info
+    {
+        margin-top:10%;
+    }
+    /*End Lunch CSS*/
+
+    /*Favorites CSS*/
+    .tv-favorites-img {
+        margin-top: 10px;
+    }
+    /*End Favorites CSS*/
+
+    /*Services CSS*/
+    .tv-services > h4 {
+        font-size: 17px;
+    }
+    /*End Services CSS*/
+
+    /*Our Chef*/
+    .tv-chef-block > img {
+        width:200px;
+    }
+    .tv-chef-block > h4 {
+        font-size: 12px;
+    }
+    /*End Our Chef*/
+
+    /*Testimonial CSS*/
+    .tv-section-title > h2 {
+        font-size: 22px;
+    }
+    /*End Testimonial CSS*/
+
+    /*Blog CSS*/
+    .tv-blog-content
+    {
+        margin-top:10%;
+    }
+
+    /*End Blog CSS*/
+
+    /*NewsLetter CSS*/
+    .tv-newsletter-title > h2 {
+        font-size: 20px;
+    }
+    .tv-newsletter-title {
+        margin-top: 5px;
+    }
+    /*End NewsLetter CSS*/
+
+    /*Menu Grid*/
+    .menu-info > h4 {
+        font-size:18px;
+        margin: 10px 0;
+    }
+    .grid figure h2 {
+        font-size: 12px;
+    }
+    #innermenugrid .menu-info {
+        padding: 0 10px;
+    }
+    /*End Menu Grid*/
+
+    /*Blog List CSS*/
+    .tv-blog-block-content {
+        padding:36% 10px;
+        position: relative;
+    }
+    .tv-blog-block-content .blog_title {
+        font-size: 15px;
+    }
+    /*End Blog List CSS*/
+
+}
+@media (min-width: 768px) and (max-width: 991px) {
+
+    /*Navigation CSS*/
+    .tv-sub-menu {
+        left: -82px;
+        margin-top: 0px !important;
+    }
+    /*End Navigation CSS*/
+
+
+    /*Header CSS*/
+    .tv-header-contact {
+        text-align: center;
+    }
+    /*End Header CSS*/
+
+    /*Menu CSS*/
+    .tv-menu
+    {
+        font-size: 10px;
+    }
+    /*End Menu CSS*/
+
+    /*Banner CSS*/
+    .tv-banner-image {
+        height: 480px;
+    }
+    .tv-banner-title {
+        width: 100%;
+    }
+    /*End Banner CSS*/
+
+    /*Story CSS*/
+    .tv-img-margin {
+        margin-bottom:0px;
+        margin-top: 20px;
+    }
+    /*End Story CSS*/
+
+    /*Lunch CSS*/
+    .tv-menu-info {
+        background: #ffffff none repeat scroll 0 0;
+        box-shadow: 0 0 5px #888888;
+        left:0;
+        margin-top:0;
+        padding: 20px;
+        transform:none;
+    }
+    .tv-menu-info > h2 {
+        font-size: 22px;
+    }
+    .tv-menu-info > p {
+        font-size: 11px;
+        margin:12px 0;
+    }
+    .tv-menu-info > a {
+        font-size: 11px;
+    }
+    /*End Lunch CSS*/
+
+    /*Favorites CSS*/
+    .tv-favorites-img {
+        margin-top: 10px;
+    }
+    /*End Favorites CSS*/
+
+    /*Services CSS*/
+    .tv-services > h4 {
+        font-size: 17px;
+    }
+    /*End Services CSS*/
+
+    /*Our Chef*/
+    .tv-chef-block > img {
+        width: 145px;
+    }
+    .tv-chef-block > h4 {
+        font-size: 12px;
+    }
+    /*End Our Chef*/
+
+    /*Testimonial CSS*/
+    .tv-section-title > h2 {
+        font-size: 22px;
+    }
+    /*End Testimonial CSS*/
+
+    /*Blog CSS*/
+    .tv-blog-content {
+        margin-top:0%;
+        padding: 20px;
+    }
+    /*End Blog CSS*/
+
+    /*NewsLetter CSS*/
+    .tv-newsletter-title > h2 {
+        font-size: 20px;
+    }
+    .tv-newsletter-title {
+        margin-top:7px;
+    }
+    /*End NewsLetter CSS*/
+
+    /*Inner Component CSS*/
+    .half {
+        float: left;
+        padding: 0 1em;
+        width: 100%;
+    }
+    .tv-icon-size-button {
+        margin-top: 20px;
+    }
+    /*End Inner Component CSS*/
+
+    /*Menu Grid CSS*/
+    .tv-clear
+    {
+        clear:both;
+    }
+    #innermenugrid .menu-info {
+        padding: 0 10px;
+    }
+    /*ENd Menu Grid CSS*/
+
+    /*Menu Tab CSS*/
+    .menu-title {
+        margin-top: 20px;
+    }
+    .home-tabs.tabs-left > li > a
+    {
+        font-size: 11px;
+    }
+    /*End Menu Tab CSS*/
+
+    /*Blog List CSS*/
+    .tv-blog-block-content {
+        padding: 8% 10px;
+        position: relative;
+    }
+    /*End Blog List CSS*/
+
+    /*Right Sidebar CSS*/
+    .tv-grid-date {
+        margin-top: 10px;
+    }
+    .tv-grid-date h4 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .tv-grid-date span {
+        font-size: 12px;
+    }
+    .block_title
+    {
+        font-size: 16px;
+    }
+    .categori_list_name a {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+    .blog_autor_top_avatar > img {
+        width: 160px;
+    }
+    .block_tags_content a {
+        width: 100%;
+    }
+    /*End Right Sidebar CSS*/
+
+    /*Single Post Right Sidebar CSS*/
+    .blog_post_content p {
+        font-size: 13px;
+    }
+    .blog_item_details .date, .blog_item_details .autor, .blog_item_details .blog_category_url {
+        margin-right: 3px;
+        padding-right: 5px;
+    }
+    /*End Single Post Right Sidebar CSS*/
+
+}
+
+@media (min-width:600px) and (max-width: 767px) {
+
+    /*Banner CSS*/
+    .tv-banner-title > p {
+        font-size: 12px;
+    }
+    /*End Banner CSS*/
+
+    /*Grid Menu CSS*/
+    #innermenugrid .menu-info {
+        padding: 10px 10px;
+    }
+    /*End Grid Menu CSS*/
+
+    /*Navigation CSS*/
+    .tv-menu i
+    {
+        float:inherit !important;
+    }
+    .test i
+    {
+        line-height: 0 !important;
+        float:inherit !important;
+    }
+    .nav > li {
+        text-align: left;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+        background-color: transparent;
+        color: #f7ad0a;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+        line-height: 20px;
+    }
+    .fa-sm
+    {
+        margin-right: 0px;
+    }
+    .nav > li {
+        display: block;
+        position: relative;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #f7ad0a;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+        max-height: 165px;
+    }
+    /*End Navigation CSS*/
+
+    /*Banner CSS*/
+    /*    .tv-banner-image {
+            height: 700px;
+        }*/
+    .tv-banner-image {
+        height: 480px;
+    }
+    .tv-banner-title {
+        width: 100%;
+    }
+    /*End Banner CSS*/
+
+    /*Story CSS*/
+    .tv-section-title > h2 {
+        font-size: 20px;
+    }
+    .tv-section-info > p {
+        width: 100%;
+    }
+    .tv-story-images {
+        margin-bottom: 20px;
+    }
+    /*End Story CSS*/
+
+    /*Services CSS*/
+    .tv-services {
+        margin-top: 20px;
+    }
+    /*End Services CSS*/
+
+    /*Lunch CSS*/
+    .tv-menu-info {
+        background: #ffffff none repeat scroll 0 0;
+        box-shadow: 0 0 5px #888888;
+        left:0;
+        margin-top:0;
+        padding: 20px;
+        transform:none;
+        position: relative;
+    }
+    .tv-menu-info > h2 {
+        font-size: 22px;
+    }
+    .tv-menu-info > p {
+        font-size: 11px;
+        margin:12px 0;
+    }
+    .tv-menu-info > a {
+        font-size: 11px;
+    }
+    /*End Lunch CSS*/
+
+    /*Favorites CSS*/
+    .effect-marley {
+        margin-top: 10px;
+    }
+    #innerbloglist .effect-marley
+    {
+        margin-top:0px;
+    }
+    /*End Favorites CSS*/
+
+    /*Chef CSS*/
+    .tv-chef-block {
+        margin-top: 10px;
+    }
+    /*End Chef CSS*/
+
+    /*Blog CSS*/
+    .tv-blog-content
+    {
+        position: relative;
+    }
+    /*End Blog CSS*/
+
+    /*Newsletter CSS*/
+    .tv-newsletter-title > h2 {
+        font-size: 17px;
+        text-align: center;
+    }
+    .tv-newsletter-title {
+        margin-bottom: 10px;
+    }
+    /*End Newsletter CSS*/
+
+    /*Footer CSS*/
+    .tv-footer-content > h3 {
+        margin-top: 20px;
+    }
+    /*End Footer CSS*/
+
+    /*Inner Component CSS*/
+    .tv-inner-banner-title {
+        left: 10%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-10%);
+    }
+    .tv-box-inner-head > h3 {
+        font-size: 22px;
+    }
+    .half {
+        float: left;
+        padding: 0 1em;
+        width: 100%;
+    }
+    .tv-icon-size-button {
+        margin-top: 20px;
+    }
+    .tv-iconbutton {
+        margin-top: 20px;
+    }
+    .tv-block-button
+    {
+        margin-bottom: 20px;
+    }
+    .process-model li {
+        float: left;
+        width: 20%;
+    }
+    .process-model li p {
+        font-size:10px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    /*End Inner Component CSS*/
+    /*Menu Tab CSS*/
+    .menu-title {
+        margin-top: 20px;
+    }
+    .home-tabs.tabs-left > li > a
+    {
+        font-size: 11px;
+    }
+    .home-tabs.nav > li {
+        display: inline-block;
+        line-height: 40px;
+    }
+    /*End Menu Tab CSS*/
+
+    /*Blog List CSS*/
+    .tv-blog-block-content {
+        padding: 5% 10px;
+    }
+    .pagination li a {
+        font-size: 14px;
+        margin: 0 -9px;
+    }
+    /*End Blog List CSS*/
+
+    /*RightSiderbar CSS*/
+    .tv-grid-date h4 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .tv-grid-date {
+        margin-top: 10px;
+    }
+    .block_tags_content a {
+        width: 100%;
+        text-decoration: none;
+    }
+    /*End RightSiderbar CSS*/
+
+    /*Single Blog Post*/
+    .blog_item_details .date, .blog_item_details .autor, .blog_item_details .blog_category_url {
+        margin-right: 3px;
+        padding-right: 5px;
+    }
+    .blog_item_social {
+        margin-top: 10px;
+    }
+    .blog_post_content p {
+        text-align: center;
+    }
+    .coment_item_l {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coment_item_r {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coments .reply .coment_item_l {
+        padding-left:0px;
+    }
+    .tv-comment-title {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    /*End Single Blog Post*/
+
+    /*Contact Us*/
+    #contact-us .contact-title {
+        margin-top: 20px;
+    }
+    /*End Contact Us*/
+}
+
+@media (min-width:501px) and (max-width:599px)
+{
+    /*Navigation CSS*/
+    .tv-menu i
+    {
+        float:inherit !important;
+    }
+    .test i
+    {
+        line-height: 0 !important;
+        float:inherit !important;
+    }
+    .nav > li {
+        text-align: left;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+        background-color: transparent;
+        color: #f7ad0a;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+        line-height: 20px;
+    }
+    .fa-sm
+    {
+        margin-right: 0px;
+    }
+    .nav > li {
+        display: block;
+        position: relative;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #f7ad0a;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+        max-height: 165px;
+    }
+    /*End Navigation CSS*/
+
+    /*Banner CSS*/
+    /*    .tv-banner-image {
+            height: 700px;
+        }*/
+    .tv-banner-image {
+        height: 480px;
+    }
+    .tv-banner-title {
+        width: 100%;
+    }
+    .tv-banner-title > p {
+        font-size: 12px;
+    }
+    /*End Banner CSS*/
+
+    /*Story CSS*/
+    .tv-section-title > h2 {
+        font-size: 20px;
+    }
+    .tv-section-info > p {
+        width: 100%;
+    }
+    .tv-story-images {
+        margin-bottom: 20px;
+    }
+    /*End Story CSS*/
+
+    /*Services CSS*/
+    .tv-services {
+        margin-top: 20px;
+    }
+    /*End Services CSS*/
+
+    /*Lunch CSS*/
+    .tv-menu-info {
+        background: #ffffff none repeat scroll 0 0;
+        box-shadow: 0 0 5px #888888;
+        left:0;
+        margin-top:0;
+        padding: 20px;
+        transform:none;
+        position: relative;
+    }
+    .tv-menu-info > h2 {
+        font-size: 22px;
+    }
+    .tv-menu-info > p {
+        font-size: 11px;
+        margin:12px 0;
+    }
+    .tv-menu-info > a {
+        font-size: 11px;
+    }
+    /*End Lunch CSS*/
+
+    /*Favorites CSS*/
+    .effect-marley {
+        margin-top: 10px;
+    }
+    #innerbloglist .effect-marley
+    {
+        margin-top:0px;
+    }
+    /*End Favorites CSS*/
+
+    /*Chef CSS*/
+    .tv-chef-block {
+        margin-top: 10px;
+    }
+    /*End Chef CSS*/
+
+    /*Blog CSS*/
+    .tv-blog-content
+    {
+        position: relative;
+    }
+    /*End Blog CSS*/
+
+    /*Newsletter CSS*/
+    .tv-newsletter-title > h2 {
+        font-size: 17px;
+        text-align: center;
+    }
+    .tv-newsletter-title {
+        margin-bottom: 10px;
+    }
+    /*End Newsletter CSS*/
+
+    /*Footer CSS*/
+    .tv-footer-content > h3 {
+        margin-top: 20px;
+    }
+    /*End Footer CSS*/
+
+    /*Inner Component CSS*/
+    .tv-inner-banner-title {
+        left: 10%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-10%);
+    }
+    .tv-box-inner-head > h3 {
+        font-size: 22px;
+    }
+    .half {
+        float: left;
+        padding: 0 1em;
+        width: 100%;
+    }
+    .tv-icon-size-button {
+        margin-top: 20px;
+    }
+    .tv-iconbutton {
+        margin-top: 20px;
+    }
+    .tv-block-button
+    {
+        margin-bottom: 20px;
+    }
+    .process-model li {
+        float: left;
+        width: 20%;
+    }
+    .process-model li p {
+        font-size:10px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    /*End Inner Component CSS*/
+
+    /*Menu Tab CSS*/
+    .menu-title {
+        margin-top: 20px;
+    }
+    .home-tabs.tabs-left > li > a
+    {
+        font-size: 11px;
+    }
+    .home-tabs.nav > li {
+        display: inline-block;
+        line-height: 40px;
+    }
+    /*End Menu Tab CSS*/
+
+    /*Blog List CSS*/
+    .tv-blog-block-content {
+        padding: 5% 10px;
+    }
+    .pagination li a {
+        margin: 0 -7px;
+    }
+    /*End Blog List CSS*/
+
+    /*RightSiderbar CSS*/
+    .tv-grid-date h4 {
+        font-size: 30px;
+        line-height: 35px;
+    }.tv-grid-date {
+        margin-top: 10px;
+    }
+    .block_tags_content a {
+        width: 100%;
+        text-decoration: none;
+    }
+    /*End RightSiderbar CSS*/
+
+    /*Single Blog Post*/
+    .blog_item_details .date, .blog_item_details .autor, .blog_item_details .blog_category_url {
+        margin-right: 3px;
+        padding-right: 5px;
+    }
+    .blog_item_social {
+        margin-top: 10px;
+    }
+    .blog_post_content p {
+        text-align: center;
+    }
+    .coment_item_l {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coment_item_r {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coments .reply .coment_item_l {
+        padding-left:0px;
+    }
+    .tv-comment-title {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    /*End Single Blog Post*/
+
+    /*Contact Us*/
+    #contact-us .contact-title {
+        margin-top: 20px;
+    }
+    /*End Contact Us*/
+
+    /*Grid Menu*/
+    #innermenugrid .menu-info {
+        padding: 10px 10px;
+    }
+    /*End Grid Menu*/
+
+}
+@media (max-width: 500px) {
+
+    /*Banner Title*/
+    .tv-banner-title > h1
+    {
+        font-size: 25px;
+    }
+    /*End Banner Title*/
+
+    /*Navigation CSS*/
+    .tv-menu i
+    {
+        float:inherit !important;
+    }
+    .test i
+    {
+        line-height: 0 !important;
+        float:inherit !important;
+    }
+    .nav > li {
+        text-align: left;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+        background-color: transparent;
+        color: #f7ad0a;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+        line-height: 20px;
+    }
+    .fa-sm
+    {
+        margin-right: 0px;
+    }
+    .nav > li {
+        display: block;
+        position: relative;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #f7ad0a;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+        max-height: 165px;
+    }
+    /*End Navigation CSS*/
+
+    /*Banner CSS*/
+    /*    .tv-banner-image {
+            height: 700px;
+        }*/
+    .tv-banner-image {
+        height: 480px;
+    }
+    .tv-banner-title {
+        width: 100%;
+    }
+    .tv-banner-title > p {
+        font-size: 12px;
+    }
+    /*End Banner CSS*/
+
+    /*Story CSS*/
+    .tv-section-title > h2 {
+        font-size: 20px;
+    }
+    .tv-section-info > p {
+        width: 100%;
+    }
+    .tv-story-images {
+        margin-bottom: 20px;
+    }
+    /*End Story CSS*/
+
+    /*Services CSS*/
+    .tv-services {
+        margin-top: 20px;
+    }
+    /*End Services CSS*/
+
+    /*Lunch CSS*/
+    .tv-menu-info {
+        background: #ffffff none repeat scroll 0 0;
+        box-shadow: 0 0 5px #888888;
+        left:0;
+        margin-top:0;
+        padding: 20px;
+        transform:none;
+        position: relative;
+    }
+    .tv-menu-info > h2 {
+        font-size: 22px;
+    }
+    .tv-menu-info > p {
+        font-size: 11px;
+        margin:12px 0;
+    }
+    .tv-menu-info > a {
+        font-size: 11px;
+    }
+    /*End Lunch CSS*/
+
+    /*Favorites CSS*/
+    .effect-marley {
+        margin-top: 10px;
+    }
+    #innerbloglist .effect-marley
+    {
+        margin-top:0px;
+    }
+    /*End Favorites CSS*/
+
+    /*Chef CSS*/
+    .tv-chef-block {
+        margin-top: 10px;
+    }
+    /*End Chef CSS*/
+
+    /*Blog CSS*/
+    .tv-blog-content
+    {
+        position: relative;
+    }
+    .tv-blog-img {
+        margin-top: 20px;
+    }
+    /*End Blog CSS*/
+
+    /*Newsletter CSS*/
+    .tv-newsletter-title > h2 {
+        font-size: 17px;
+        text-align: center;
+    }
+    .tv-newsletter-title {
+        margin-bottom: 10px;
+    }
+    /*End Newsletter CSS*/
+
+    /*Footer CSS*/
+    .tv-footer-content > h3 {
+        margin-top: 20px;
+    }
+    /*End Footer CSS*/
+
+    /*Inner Component CSS*/
+    .tv-inner-banner-title {
+        left: 10%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-10%);
+    }
+    .tv-box-inner-head > h3 {
+        font-size: 22px;
+    }
+    .half {
+        float: left;
+        padding: 0 1em;
+        width: 100%;
+    }
+    .tv-icon-size-button {
+        margin-top: 20px;
+    }
+    .tv-iconbutton {
+        margin-top: 20px;
+    }
+    .tv-block-button
+    {
+        margin-bottom: 20px;
+    }
+    .process-model li {
+        float: left;
+        width: 20%;
+    }
+    .process-model li p {
+        font-size:10px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    /*End Inner Component CSS*/
+    /*Menu Tab CSS*/
+    .menu-title {
+        margin-top: 20px;
+    }
+    .home-tabs.tabs-left > li > a
+    {
+        font-size: 11px;
+    }
+    .home-tabs.nav > li {
+        display: inline-block;
+        line-height: 40px;
+    }
+    /*End Menu Tab CSS*/
+
+    /*Block list CSS*/
+    .tv-blog-block-content {
+        padding: 5% 10px;
+    }
+    .pagination li a {
+        margin: 0 -7px;
+    }
+    /*End Block List CSS*/
+
+    /*RightSiderbar CSS*/
+    .tv-grid-date h4 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .tv-grid-date {
+        margin-top: 10px;
+    }
+    .block_tags_content a {
+        width: 100%;
+        text-decoration: none;
+    }
+    /*End RightSiderbar CSS*/
+
+    /*Single Blog Post*/
+    .blog_item_details .date, .blog_item_details .autor, .blog_item_details .blog_category_url {
+        margin-right: 3px;
+        padding-right: 5px;
+    }
+    .blog_item_social {
+        margin-top: 10px;
+    }
+    .blog_post_content p {
+        text-align: center;
+    }
+    .coment_item_l {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coment_item_r {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coments .reply .coment_item_l {
+        padding-left:0px;
+    }
+    .tv-comment-title {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    /*End Single Blog Post*/
+
+    /*Contact Us*/
+    #contact-us .contact-title {
+        margin-top: 20px;
+    }
+    /*End Contact Us*/
+    /*Grid Menu*/
+    #innermenugrid .menu-info {
+        padding: 10px 10px;
+    }
+    /*End Grid Menu*/
+}
+
+@media (max-width: 400px) {
+
+    /*Banner Title*/
+    .tv-banner-title > h1
+    {
+        font-size:30px;
+    }
+    /*End Banner Title*/
+
+    /*Navigation CSS*/
+    .tv-menu i
+    {
+        float:inherit !important;
+    }
+    .test i
+    {
+        line-height: 0 !important;
+        float:inherit !important;
+    }
+    .nav > li {
+        text-align: left;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+        background-color: transparent;
+        color: #f7ad0a;
+    }
+    .tv-drop-menu a > i {
+        float: right;
+        line-height: 20px;
+    }
+    .fa-sm
+    {
+        margin-right: 0px;
+    }
+    .nav > li {
+        display: block;
+        position: relative;
+    }
+    .navbar-default .navbar-toggle {
+        border-color: transparent;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #f7ad0a;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+        background-color: transparent;
+    }
+    /*End Navigation CSS*/
+
+    /*Banner CSS*/
+    /*    .tv-banner-image {
+            height: 700px;
+        }*/
+    .tv-banner-image {
+        height: 480px;
+    }
+    .tv-banner-title {
+        width: 100%;
+    }
+    .tv-banner-title > p {
+        font-size: 12px;
+    }
+    /*End Banner CSS*/
+
+    /*Story CSS*/
+    .tv-section-title > h2 {
+        font-size: 20px;
+    }
+    .tv-section-info > p {
+        width: 100%;
+    }
+    .tv-story-images {
+        margin-bottom: 20px;
+    }
+    /*End Story CSS*/
+
+    /*Services CSS*/
+    .tv-services {
+        margin-top: 20px;
+    }
+    /*End Services CSS*/
+
+    /*Lunch CSS*/
+    .tv-menu-info {
+        background: #ffffff none repeat scroll 0 0;
+        box-shadow: 0 0 5px #888888;
+        left:0;
+        margin-top:0;
+        padding: 20px;
+        transform:none;
+        position: relative;
+    }
+    .tv-menu-info > h2 {
+        font-size: 22px;
+    }
+    .tv-menu-info > p {
+        font-size: 11px;
+        margin:12px 0;
+    }
+    .tv-menu-info > a {
+        font-size: 11px;
+    }
+    /*End Lunch CSS*/
+
+    /*Favorites CSS*/
+    .effect-marley {
+        margin-top: 10px;
+    }
+    #innerbloglist .effect-marley
+    {
+        margin-top:0px;
+    }
+    /*End Favorites CSS*/
+
+    /*Chef CSS*/
+    /*    .tv-chef-block > img {
+            width: 278px;
+        }*/
+    .tv-chef-block > img {
+        width: 317px;
+    }
+    .tv-chef-block {
+        margin-top: 10px;
+    }
+    /*End Chef CSS*/
+
+    /*Blog CSS*/
+    .tv-blog-content
+    {
+        position: relative;
+    }
+    .tv-blog-img {
+        margin-top: 20px;
+    }
+    /*End Blog CSS*/
+
+    /*Newsletter CSS*/
+    .tv-newsletter-title > h2 {
+        font-size: 17px;
+        text-align: center;
+    }
+    /*End Newsletter CSS*/
+
+    /*Footer CSS*/
+    .tv-footer-content > h3 {
+        margin-top: 20px;
+    }
+    /*End Footer CSS*/
+
+    /*Inner Component CSS*/
+    .tv-inner-banner-title {
+        left: 10%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-10%);
+    }
+    .tv-box-inner-head > h3 {
+        font-size: 22px;
+    }
+    .half {
+        float: left;
+        padding: 0 1em;
+        width: 100%;
+    }
+    .tv-icon-size-button {
+        margin-top: 20px;
+    }
+    .tv-iconbutton {
+        margin-top: 20px;
+    }
+    .tv-block-button
+    {
+        margin-bottom: 20px;
+    } 
+    .process-model li {
+        float: left;
+        width: 20%;
+    }
+    .process-model li i {
+        font-size: 12px;
+        height: 40px;
+        line-height: 35px;
+        width: 40px;
+    }
+    .process-model li::after {
+        top: 20px;
+    }
+    .process-model li p {
+        font-size:7px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    /*End Inner Component CSS*/
+
+    /*Menu Tab CSS*/
+    .menu-title {
+        margin-top: 20px;
+    }
+    .home-tabs.tabs-left > li > a
+    {
+        font-size: 11px;
+    }
+    .home-tabs.nav > li {
+        display: inline-block;
+        line-height: 40px;
+    }
+    /*End Menu Tab CSS*/
+
+    /*Blog List CSS*/
+    #innerbloglist .grid figure h2 {
+        font-size: 12px;
+    }
+    #innerbloglist .grid figure p {
+        font-size:8px;
+    }
+    .tv-blog-block-content .blog_title
+    {
+        font-size: 14px;
+    }
+    .pagination li a {
+        font-size: 14px;
+        margin: 0 -9px;
+    }
+    .pagination li .active {
+        font-size: 14px;
+        padding-top:9px;
+    }
+    /*End Blog List CSS*/
+
+    /*RightSiderbar CSS*/
+    .tv-grid-date h4 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+    .tv-grid-date {
+        margin-top: 10px;
+    }
+    .block_tags_content a {
+        width: 100%;
+        text-decoration: none;
+    }
+    /*End RightSiderbar CSS*/
+
+    /*Single Blog Post*/
+    .blog_item_details .date, .blog_item_details .autor, .blog_item_details .blog_category_url {
+        margin-right: 3px;
+        padding-right: 5px;
+    }
+    .blog_item_social {
+        margin-top: 10px;
+    }
+    .blog_post_content p {
+        text-align: center;
+    }
+    .coment_item_l {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coment_item_r {
+        text-align: center;
+        margin-top:10px;
+    }
+    .coments .reply .coment_item_l {
+        padding-left:0px;
+    }
+    .tv-comment-title {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    /*End Single Blog Post*/
+
+    /*Contact Us*/
+    #contact-us .contact-title {
+        margin-top: 20px;
+    }
+    /*End Contact Us*/
+
+    /*Inner Icon CSS*/
+    .icon-short-code .icon__body {
+        font-size: 10px;
+    }
+    .icon-short-code .fa {
+        height: 50px;
+        width: 50px;
+    }
+    /*End Inner Icon CSS*/
+
+    /*Grid Menu*/
+    #innermenugrid .menu-info {
+        padding: 10px 10px;
+    }
+    /*End Grid Menu*/
+
+}
+
+
+
+
+

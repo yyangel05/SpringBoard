@@ -5,7 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판 글 목록보기</title>
-<link href="<%=request.getContextPath()%>/css/board.css" rel="stylesheet" type="text/css" />
+<%-- <link href="<%=request.getContextPath()%>/css/board.css" rel="stylesheet" type="text/css" /> --%>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/SpringBoard/style/images/favicon.png" rel="icon"/>
+        <link href="/SpringBoard/style/css/magnific-popup.css" rel="stylesheet">
+        <link href="/SpringBoard/style/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/SpringBoard/style/css/style.css" rel="stylesheet">
+        <link href="/SpringBoard/style/css/responsive.css" rel="stylesheet">
+
+        <script src="/SpringBoard/style/js/jquery.min.js" type= "text/javascript"></script>
+        <script src="/SpringBoard/style/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/magnific-popup.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/jquery.imagesloaded.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/custom.js" type="text/javascript"></script>
+
+
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.7.1.js"></script>
 <script type="text/javascript">
 
@@ -28,81 +44,132 @@
 </script>
 
 </head>
-<body onload="selectedOptionCheck()">
+<body id="bloglist" onload="selectedOptionCheck()">
 
-<div class="wrapper">
-	<div class="navBar">
-		<ul>
-			<li><a href="/SpringBoard/board/list.yy">스프링 게시판</a></li>
-			<li><a href="/SpringBoard/logout.yy">로그아웃</a></li>
-		</ul>
-		
-		<!-- 검색 관련 기능 -->
-		<form action="list.yy" method="get">
-			<!-- 검색 셀렉트박스 -->
-			<select id="type" name="type">
-				<option value="subject">제목</option>
-				<option value="content">내용</option>
-				<option value="writer">작성자</option> 
-			</select>
-			<!-- 검색어 입력창과 전송창 -->
-			<input type="text" id="keyword" name="keyword" 
-				   value="<%if(request.getParameter("keyword") != null) {out.print(request.getParameter("keyword"));}
-						    else{out.print("");}%>"/>
-			<input type="submit" value="검색"/>		 
-					 
-		</form>
+	<!--Subscribe us now-->
+        <section id="subscribe">
+            <div class="tv-bg-color tv-section-padding-30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                        </div>                       
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+							<form action="list.yy" method="get">
+                                <div class="input-group">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <select style="width: 100px; height: 35px; margin-right: 20px;" id="type" name="type">
+                                              		<option value="subject">제목</option>
+													<option value="content">내용</option>
+													<option value="writer">작성자</option> 
+                                                </select>
+                                            </td>
+                                            <td>
+                                               <input style="width:  250px;" placeholder="Search Keyword" type="text" id="keyword" name="keyword" class="form-control tv-link-box placeholder-fix" 
+													  value="<%if(request.getParameter("keyword") != null) {out.print(request.getParameter("keyword"));}
+															   else{out.print("");}%>"/>
+                                            </td>
+                                            <td>
+                                            <span class="input-group-btn">
+                                                <button  style="width:  100px;" type="submit" class="btn tv-link-button">검색하기</button>
+                                            </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Subscribe us now-->
 	
-	</div>
+
+        <!--Blog list Section-->
+        <section id="innerbloglist" class="tv-section-padding">
+            <div class="container">
+                <div class="row tv-blog-row-margin">
+                    <div class="col-md-12 padding-0 tv-blog-block-bgcolor col-sm-12 col-xs-12">
+                        <div class="col-md-12 padding-0 col-sm-12 col-xs-12">
+	                        <table class="table">
+	                            <thead>
+	                                <tr>
+	                                    <th class="text-center">글번호</th>
+	                                    <th class="text-center" width="500px">글내용</th>
+	                                    <th class="text-center">작성자</th>
+	                                    <th class="text-center">조회수</th>
+	                                    <th class="text-center">추천수</th>
+	                                    <th class="text-center">작성일</th>
+	                                </tr> 
+	                            </thead>
+	                            <tbody>
+	                                <c:forEach var="board" items="${boardList}">
+										<tr>
+											<td class="text-center">${board.rnum}</td>
+											<td align="left" class="text-center">
+												<c:if test="${board.comment >=10 }"><img src="<%=request.getContextPath() %>/img/hit.jpg"/></c:if>
+												<a href="view.yy?idx=${board.idx}">${board.subject}</a></td>
+											<td class="text-center">
+												<c:choose>
+													<c:when test="${board.writerId == userId }"> 
+														<strong>${board.writer}</strong>
+													</c:when>
+													<c:otherwise>${board.writer}</c:otherwise> 
+												</c:choose>
+											</td>	
+											<td class="text-center">${board.comment}</td>	
+											<td class="text-center">${board.hitcount}</td>	
+											<td class="text-center">${board.recommendcount}</td>	
+											<td class="text-center">${board.writeDate}</td>
+										</tr>
+									</c:forEach>
+	                            </tbody>
+	                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 tv-blog-block-bgcolor col-sm-12 col-xs-12">
+                <div class="pagination">
+                    <div class="container">
+                        <div class="row">
+                            <ul>
+                                <li><a><i class="fa fa-angle-left"></i></a></li>
+                                <li><span class="active">1</span></li>
+                                <li><a>2</a></li>
+                                <li><a>3</a></li>
+                                <li><a>4</a></li>
+                                <li><a>5</a></li>
+                                <li><span class="pagination-dots">...</span></li>
+                                <li><a>555</a></li>
+                                <li><a><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+             ${pageHtml} 
+            </div>
+            
+        </section>
+        <!--End Blog list Section-->
 	
-	<!-- 게시글 리스트가 나오는 화면 -->
-	<table border="0" class="boardTable">
-		<thead>
-		<tr>
-			<th>글번호</th>
-			<th>제목</th>
-			<th>작성자</th>
-			<th>덧글수</th>
-			<th>조회수</th>
-			<th>추천수</th>
-			<th>작성일</th>
-		</tr>
-		</thead>
-		<tbody>
-		<!-- 게시글 리스트가 담겨있는 boardList의 내용을 꺼내는 반복문 수행. -->
-			<c:forEach var="board" items="${boardList}">
-				<tr>
-					<td class="idx">${board.rnum}</td>
-					<td align="left" class="subject">
-						<c:if test="${board.comment >=10 }"><img src="<%=request.getContextPath() %>/img/hit.jpg"/></c:if>
-						<a href="view.yy?idx=${board.idx}">${board.subject}</a></td>
-					<td class="writer">
-						<c:choose>
-							<c:when test="${board.writerId == userId }"> 
-								<strong>${board.writer}</strong>
-							</c:when>
-							<c:otherwise>${board.writer}</c:otherwise> 
-						</c:choose>
-					</td>	
-					<td class="comment">${board.comment}</td>	
-					<td class="hitcount">${board.hitcount}</td>	
-					<td class="recommendcount">${board.recommendcount}</td>	
-					<td class="writeDate">${board.writeDate}</td>
-				</tr>
-				
-			</c:forEach>
-		
-		</tbody>
-	</table>
-	<br/>
-	${pageHtml}
-	<br/><br/>
-		
-	<input type="button" value="목록" class="writeBt" onclick="moveAction(2)"/>
-	<input type="button" value="쓰기" class="writeBt" onclick="moveAction(1)"/>
+	<style>
+		.button {
+			width:150px; height:35px; background:#F7AD0A;
+			font-size:15px;
+		}
+	</style>
 	
+	 <div align="center">
+		<input class="button" type="button" value="목록" onclick="moveAction(2)"/>
+		<input class="button" type="button" value="쓰기" onclick="moveAction(1)"/>
+	 </div>
 	
-</div>
+	<%-- ${pageHtml} --%>
 
 </body>
 </html>

@@ -7,23 +7,52 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-  <!-- Bootstrap core CSS -->
-    <link href="/SpringBoard/style/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <title>Bite On Bite</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/SpringBoard/style/images/favicon.png" rel="icon"/>
+        <link href="/SpringBoard/style/css/magnific-popup.css" rel="stylesheet">
+        <link href="/SpringBoard/style/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/SpringBoard/style/css/style.css" rel="stylesheet">
+        <link href="/SpringBoard/style/css/responsive.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="/SpringBoard/style/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
-    <link href="/SpringBoard/style/css/agency.min.css" rel="stylesheet">
+        <script src="/SpringBoard/style/js/jquery.min.js" type= "text/javascript"></script>
+        <script src="/SpringBoard/style/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/magnific-popup.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/jquery.imagesloaded.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="/SpringBoard/style/js/custom.js" type="text/javascript"></script>
     
 <title><tiles:getAsString name="title"/></title>
 
 </head>
 <body>
+
+ <!--DropDown Script-->
+        <script>
+            $(document).ready(function () {
+                $('.Navigation-listItem').click(function (e) {
+                    if ($(this).children('.Navigation-list.is-dropdown').hasClass('is-hidden')) {
+                        $(".Navigation-list.is-dropdown").addClass('is-hidden');
+                        $(this).children('.Navigation-list.is-dropdown').removeClass('is-hidden');
+                    } else {
+                        $(".Navigation-list.is-dropdown").addClass('is-hidden');
+                    }
+                });
+                $('.Navigation-listItem .Navigation-list.is-dropdown').click(function (e) {
+                    e.stopPropagation();
+                });
+            });
+
+            $(document).click(function () {
+                $(".Navigation-list.is-dropdown").addClass('is-hidden');
+            });
+
+            $(".Navigation-listItem.is-dropdown").click(function (e) {
+                e.stopPropagation();
+            });
+        </script>
+        <!--End DropDown Script-->
 
 <%-- 	<div class="container-fluid">
 		<tiles:insertAttribute name="header"/>

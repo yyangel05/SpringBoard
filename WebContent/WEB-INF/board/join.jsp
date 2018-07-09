@@ -49,7 +49,31 @@
 
 
 </head>
-<body onload="errCodeCheck()" id="page-top">
+<body onload="errCodeCheck()" id="blogsingleleftsidebar">
+
+ <script>
+            $(document).ready(function () {
+                $('.Navigation-listItem').click(function (e) {
+                    if ($(this).children('.Navigation-list.is-dropdown').hasClass('is-hidden')) {
+                        $(".Navigation-list.is-dropdown").addClass('is-hidden');
+                        $(this).children('.Navigation-list.is-dropdown').removeClass('is-hidden');
+                    } else {
+                        $(".Navigation-list.is-dropdown").addClass('is-hidden');
+                    }
+                });
+                $('.Navigation-listItem .Navigation-list.is-dropdown').click(function (e) {
+                    e.stopPropagation();
+                });
+            });
+
+            $(document).click(function () {
+                $(".Navigation-list.is-dropdown").addClass('is-hidden');
+            });
+
+            $(".Navigation-listItem.is-dropdown").click(function (e) {
+                e.stopPropagation();
+            });
+ </script>
 
 <!-- Navigation -->
     <!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -79,8 +103,74 @@
 	<form action="join.yy" method="post" onsubmit="return passwordCheck()">
 
 
+   <!--Banner Section-->
+        <div class="tv-banner-image tv-blog-banner-img" style="background: rgba(0, 0, 0, 0) url('/SpringBoard/style/images/Image24.jpeg') no-repeat scroll center top / cover;">
+            <div class="tv-banner-title">
+                <h1>회원가입</h1>
+            </div>
+        </div>
+        <!--End Banner Section-->
+
+        <!--Contact Us Section-->
+        <section id="contact-us" class="tv-section-padding">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="contact-block-color">
+                            <div class="row">
+                                
+                                    <div class="contact-us-box">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-4 col-xs-12 contact-box-area"></div>
+                                            <div class="col-md-4 col-sm-4 col-xs-12 contact-box-area">
+                                                <h3 class="contact-title" align="center">
+                                                    regist Form
+                                                </h3>
+                                                <div class="contact-form">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Your mail address *" type="text"  id="userId" name="userId">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Your password *" type="password" id="userPw" name="userPw">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Your password *" type="password"  id="userPwCheck" name="userPwCheck">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" placeholder="Your name *" type="text" id="userName" name="userName">
+                                                        </div>
+                                                        <div align="center">
+                                                            <button type="submit" class="btn btn-contact-send">register</button>
+                                                            <button type="reset" class="btn btn-contact-send">reset</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                           <div class="col-md-4 col-sm-4 col-xs-12 contact-box-area"></div>
+                                        </div>
+                                    </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Contact Us Section-->
+
+
+
+
+
+
+
+
+
     <!-- Contact -->
-    <section id="contact">
+   <%--  <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -90,7 +180,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <%-- <form id="contactForm" name="sentMessage" novalidate="novalidate"> --%>
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
               <div class="row">
 
                 <div class="col-md-4">
@@ -128,13 +218,13 @@
                 </div>
 
 
-              </div>
+              </div> --%>
            <%--  </form> --%>
-          </div>
+<!--           </div>
         </div>
       </div>
     </section>
-
+ -->
 	</form>
 
     <!-- Footer -->
