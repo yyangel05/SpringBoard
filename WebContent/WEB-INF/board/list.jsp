@@ -157,16 +157,11 @@
         </section>
         <!--End Blog list Section-->
 	
-	<style>
-		.button {
-			width:150px; height:35px; background:#F7AD0A;
-			font-size:15px;
-		}
-	</style>
+	
 	
 	 <div align="center">
-		<input class="button" type="button" value="목록" onclick="moveAction(2)"/>
-		<input class="button" type="button" value="쓰기" onclick="moveAction(1)"/>
+		<input class="btn input-contact-send"  type="button" value="목록" onclick="moveAction(2)"/>
+		<input class="btn input-contact-send" type="button" value="쓰기" onclick="moveAction(1)"/>
 	 </div>
 	
 	<%-- ${pageHtml} --%>

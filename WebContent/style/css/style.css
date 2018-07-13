@@ -22,6 +22,11 @@ a, button {
     cursor: pointer;
 }
 
+input {
+    text-decoration: none;
+    cursor: pointer;    
+}
+
 a:hover,
 a:active,
 a:focus {
@@ -1898,6 +1903,19 @@ input[type=radio]:checked + label::after {
     color:#f7ad0a;
     text-decoration: none;
 }
+.blog_item_details .title {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-right: 10px;
+    margin-top: 6px;
+    padding-right: 16px;
+    text-transform: uppercase;
+    color:#f7ad0a;
+    text-decoration: none;
+}
+
 .blog_item_social ul {
     margin: 0;
     padding: 0;
@@ -1949,9 +1967,9 @@ input[type=radio]:checked + label::after {
     font-weight: 700;
     margin-bottom: 20px;
     padding: 0;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 27px;
 }
 article ul, article ol {
     margin: 30px;
@@ -2000,11 +2018,11 @@ article ul, article ol {
 }
 .tv-comment-title
 {
-    font-size: 30px;
+    font-size: 27px;
     font-weight: 700;
     margin-bottom: 20px;
     padding: 0;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
 }
 .leave_coment_content input {
@@ -2143,4 +2161,32 @@ article ul, article ol {
 
 .Navigation-list.is-hidden {
     display: none !important;
+}
+
+/*인풋 버튼모양 이쁘게 만들기*/
+
+.input-contact-send
+{
+    background: #f7ad0a none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.input-contact-send:hover
+{
+    background: #222222 none repeat scroll 0 0;
+    color:#ffffff;
+    border:1px solid #222222;
+}
+
+.input.active.focus, .input.active:focus, .input.focus, .input.focus:active, .input:active:focus, .input:focus {
+    //outline-color: inherit;
+    outline-offset: 0px;
+    outline-style: none;
+    outline-width: 0px;
 }

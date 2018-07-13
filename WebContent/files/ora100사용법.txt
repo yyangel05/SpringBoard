@@ -1,0 +1,81 @@
+제어판->네트워크 공유센터
+vm8??
+
+192.168.★190.★1
+db에 접속하게 위한 아이피주소???
+
+cmd-> ipconfig
+
+open a virtual machine -> ora100.vmdk
+
+ip를 설정하는 작업
+명령 -> 컴터다시시작하기
+
+
+	* 리눅스 계정
+	root / oracle
+	oracle / oracle 
+
+
+로그인이 되면   ip를 맞춰서 인터넷이 되도록 하는 작업
+
+[장치]
+
+프로그램->시스템설정->네트워크
+ehg 편집버튼으로 들어가서 ip주소들을 바꿔야한다.
+
+하드웨어장치에서 맥주소로 들어가서 추적을 누르면 변한다.
+
+
+[호스트]
+선택하고 편집-> ip주소를 그대로 넣어준다
+
+
+
+
+
+활성화버튼 누르고 변경적용을 예 누르면 변경이 된다.
+
+다 적용되고 파이어폭스를 눌러 인터넷이 되는지 확인을 한다.
+setting.txt 더블클릭 -> $ $ SQL> SQL> $ 명령어를 실행하면 된다.
+우클릭->터미널->커맨드입력
+	lsnrctl start
+	sqlplus / as sysdba (제일 높은 계정으로 접속함??)
+	startup (데이터베이스 엔진 구동)
+	
+
+sql developer로 접속해서ㅓ 
+
+접속이름 : 아무거나
+사용자 : system 
+비번 : oracle 
+
+호스트이름 : 리눅스에서 설정한 자기꺼
+
+
+jdbc:oracle:thin:@192.168.???.???:1521:ORCL
+개인 PC의 IP영역사용
+
+
+create user kh10 identified by oracle 
+grant resource, connect to kh10
+
+
+vmkh10
+kh10
+oracle 
+192.168.???.???
+orcl
+
+
+goto vmware
+
+	exit
+	isqlplusctl start (인터넷으로 들어가서 쓰기 위한 명령어??)
+
+http://192.168.190.100:5560/isqlplus
+[kh10/oracle] -> 아무 쿼리나 넣어서 실행
+
+
+작업을 마치면 || (일시정지버튼같은거) 누르면 된다. 
+	
